@@ -1,0 +1,23 @@
+generated: '2026-07-18'
+method: searched
+source: openapi/atrato-partners-openapi.yml
+docs: https://docs.atratopago.com/reference/autenticación
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: sec0
+  type: apiKey
+  in: header
+  parameter: x-auth-token
+  sources:
+  - openapi/atrato-partners-openapi.yml
+flow:
+  token_endpoints:
+  - POST /api/v4/integration/login
+  - POST /api/v4/ecommerce/integration/{partner-key}/login
+  credentials: partner-dashboard username + password
+  token_ttl: 5 minutes
+  extra: Ecommerce endpoints additionally require a partner-key path segment obtained from the partner dashboard (Development > API).
