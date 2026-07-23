@@ -1,0 +1,52 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.atratopago.com/reference/ + openapi/atrato-partners-openapi.yml
+authentication:
+  style: api-key-header
+  header: x-auth-token
+  token_via: POST /api/v4/integration/login (cash-in) or POST /api/v4/ecommerce/integration/{partner-key}/login
+    (ecommerce)
+  token_ttl: 5 minutes
+  extra: Ecommerce endpoints also require a partner-key path segment obtained from the partner dashboard
+    (Development > API).
+idempotency:
+  api_request_idempotency: false
+  note: 'Atrato does not document a request idempotency key. Idempotency is a CONSUMER-side recommendation
+    for webhook processing only: dedupe on paymentId + status and ignore repeated final-state (success/cancelled)
+    events.'
+pagination:
+  style: page-number
+  params:
+  - page
+  - limit
+  sort_params:
+  - orderBy
+  - orderDirection
+  response_fields:
+  - totalPayments
+  - totalAmount
+  - data
+  note: Cash-in list (/cash-in/payments) and disbursements (/disbursement) are paged; disbursements use
+    page + recordsPerPage.
+versioning:
+  scheme: uri-path
+  current: v4
+  example: /api/v4/integration/...
+error_envelope:
+  content_type: application/json
+  fields:
+  - message
+  - details
+  see: errors/atrato-problem-types.yml
+webhooks:
+  delivery: POST application/json
+  retries: up to 6 retries until the endpoint returns HTTP 200
+  success_criteria: HTTP 2xx (200)
+  see: asyncapi/atrato-webhooks.yml
+rate_limiting:
+  documented: false
+cross_links:
+  authentication: authentication/atrato-authentication.yml
+  errors: errors/atrato-problem-types.yml
+  lifecycle: lifecycle/atrato-lifecycle.yml
+  webhooks: asyncapi/atrato-webhooks.yml

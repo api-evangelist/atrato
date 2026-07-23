@@ -1,0 +1,29 @@
+# Atrato Documentation
+
+> Documentation for Atrato
+
+## Guides
+- [Inicio](https://docs.atratopago.com/docs/inicio.md)
+- [Popup informativo](https://docs.atratopago.com/docs/popup-informativo-2.md)
+
+## API Reference
+- [Autenticación](https://docs.atratopago.com/reference/autenticación.md)
+- [Recepción de pagos](https://docs.atratopago.com/reference/recepción-de-pagos.md)
+- [Buscar usuario](https://docs.atratopago.com/reference/buscar-usuario.md): Busca los créditos de un usuario por número de referencia CIE o por el ID de la solicitud. Se requiere al menos uno de los dos parámetros. Devuelve los datos del usuario y los créditos activos con montos disponibles para pago.
+- [Obtener sucursales disponibles](https://docs.atratopago.com/reference/obtener-sucursales-disponibles.md): Devuelve las sucursales autorizadas para el partner autenticado. Usar storeId en register-payment para indicar en qué sucursal se recibe el pago.
+- [Registrar pago](https://docs.atratopago.com/reference/registrar-pago.md): Registra uno o más pagos de un cliente en tienda. El userId y creditId/amount se obtienen del endpoint /api/v4/integration/cash-in/search. El storeId se debe obtener del endpoint /api/v4/integration/cash-in/available-stores.
+- [Listar pagos](https://docs.atratopago.com/reference/listar-pagos.md): Obtiene la lista de pagos del comercio con filtros opcionales. Paginación con page y limit.
+- [Detalles de pago](https://docs.atratopago.com/reference/detalles-de-pago.md): Obtiene el detalle de un pago específico por su ID global.
+- [Webhook](https://docs.atratopago.com/reference/webhook.md)
+- [Integración](https://docs.atratopago.com/reference/autenticación-1.md)
+- [Obtener token](https://docs.atratopago.com/reference/obtener-token.md)
+- [Generar orden](https://docs.atratopago.com/reference/generar-orden.md)
+- [Consultar orden](https://docs.atratopago.com/reference/consulta-de-orden.md)
+- [Registrar entrega](https://docs.atratopago.com/reference/registrar-entrega.md)
+- [Solicitar cancelación](https://docs.atratopago.com/reference/solicitar-cancelacion.md)
+- [Consulta de desembolsos](https://docs.atratopago.com/reference/consulta-de-desembolsos.md)
+- [Consulta de desembolsos por número de transacción](https://docs.atratopago.com/reference/consulta-de-desembolsos-orden.md)
+- [Webhook de notificaciones](https://docs.atratopago.com/reference/webhooks.md): Un webhook es una API de devolución de llamada definida por el usuario basada en HTTP, que se puede configurar en la plataforma de Atrato para recibir notificaciones de cambios de estado de la solicitud y eventos de desembolso.
+- [Configuración](https://docs.atratopago.com/reference/configuración.md)
+- [Tipos de notificación](https://docs.atratopago.com/reference/estructura.md): Definición de tipos y estructuras de notificación
+- [Catálogos](https://docs.atratopago.com/reference/catalogo.md): Catálogo de estados que se notificarán a través del webhook

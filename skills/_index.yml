@@ -1,0 +1,19 @@
+generated: '2026-07-18'
+method: generated
+skills:
+- file: atrato-cash-in-register-payment.md
+  name: Register an in-store cash-in payment
+  api: openapi/atrato-partners-openapi.yml
+  operations:
+  - autenticación
+  - get_api-v4-integration-cash-in-search
+  - get_api-v4-integration-cash-in-available-stores
+  - post_api-v4-integration-cash-in-register-payment
+- file: atrato-ecommerce-generate-order.md
+  name: Generate an ecommerce BNPL checkout order
+  api: openapi/atrato-partners-openapi.yml
+  operations:
+  - obtener-token
+  - generar-orden
+  - consulta-de-orden
+  - registrar-entrega

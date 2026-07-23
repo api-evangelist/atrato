@@ -1,0 +1,1690 @@
+# Reconstructed verbatim from Atrato's per-operation OpenAPI definitions
+# published in the ReadMe developer reference at https://docs.atratopago.com/reference/
+# generated: '2026-07-18'  method: searched
+openapi: 3.1.0
+info:
+  title: Atrato Partners API
+  version: '1.0'
+  description: 'Atrato Partners API (api-partners) for buy-now-pay-later integration: in-store cash-in
+    payment collection and ecommerce checkout order generation. Reconstructed verbatim from Atrato''s
+    per-operation OpenAPI definitions published in the ReadMe developer reference at docs.atratopago.com.'
+servers:
+- url: https://api-sandbox.atratopago.com
+  description: Sandbox
+security:
+- sec0: []
+paths:
+  /api/v4/integration/login:
+    post:
+      summary: Autenticación
+      description: ''
+      operationId: autenticación
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - username
+              - password
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVC19.eyJwYXJ0bmVyIjprImlkQ29tZXJjaW8iOjEsIndsczZXJuYW1lIjoiRGllZ29aYXJhdGUiLCJpc0VkaXRvciI6dHJ1ZSwiaXNNYXN0ZXIiOnRydWUsImlzQWN0aXZlIjp0cnVlLCJpZCI6MTAsImZlY2hhQ3JlYWNpb24iOiIyMDIxLTA2LTIwVDAxOjMzOjQyLjAwMFoifSwiaWF0IjoxNjcyMDc5NzkzLCJleHAiOjE2NzIxMzAxOTN9.XNKesoKpaztn7oMRkl73dN8c-Mj4v_dH9y5obq7QTAU\"\
+                    ,\n}"
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                required:
+                - token
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"msg\": \"No se encontró cuenta registrada para usuario: {user}\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'No se encontró cuenta registrada para usuario: {user}'
+      deprecated: false
+      security: []
+  /api/v4/integration/cash-in/search:
+    get:
+      description: ''
+      responses:
+        '200':
+          description: Usuario encontrado con créditos activos. Devuelve los datos del usuario y los créditos
+            activos con montos disponibles para pago.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  userName:
+                    type: string
+                    default: ''
+                    description: Nombre del cliente.
+                  userId:
+                    type: integer
+                    description: ID del usuario (usar en el registro de pago).
+                  credits:
+                    type: object
+                    properties:
+                      creditId:
+                        type: integer
+                        description: ID del crédito (usar en el registro de pago).
+                      debtToDate:
+                        type: number
+                        description: Deuda al día.
+                      settleAmount:
+                        type: number
+                        description: Monto para liquidar.
+                      installmentAmount:
+                        type: number
+                        description: Monto de la mensualidad.
+                      merchantName:
+                        type: string
+                        description: Nombre del comercio al que pertenece el crédito.
+                required:
+                - userName
+              examples:
+                ? ''
+                : summary: ''
+                  value:
+                    userName: string
+                    userId: 0
+                    credits:
+                    - creditId: 0
+                      debtToDate: 0
+                      settleAmount: 0
+                      merchantName: string
+                      installmentAmount: 0
+        '400':
+          description: No se proporcionó ningún criterio de búsqueda. Se requiere al menos uno de los
+            dos parámetros.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensaje de error.
+                  details:
+                    type: string
+                    description: Detalles del error.
+                required:
+                - message
+              examples:
+                ? ''
+                : summary: ''
+                  value:
+                    message: No se proporcionó ningún criterio de búsqueda
+        '401':
+          description: No se proporcionó el token de autenticación. Se debe usar el token obtenido con
+            el endpoint /api/v4/integration/login.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensaje de error.
+                  details:
+                    type: string
+                    description: Detalles del error.
+                required:
+                - message
+              examples:
+                ? ''
+                : summary: ''
+                  value:
+                    message: string
+                    details: string
+        '404':
+          description: No se encontró ningún usuario con los criterios de búsqueda proporcionados.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensaje de error.
+                  details:
+                    type: string
+                    description: Detalles del error.
+                required:
+                - message
+              examples:
+                ? ''
+                : summary: ''
+                  value:
+                    message: No se encontraron créditos activos para este usuario
+      parameters:
+      - in: query
+        name: reference
+        schema:
+          type: string
+          default: ''
+        description: Número de referencia CIE asignado al cliente (inicia con la letra 'U').
+      - in: query
+        name: applicationId
+        schema:
+          type: integer
+          default: ''
+        description: ID de la solicitud de crédito.
+      operationId: get_api-v4-integration-cash-in-search
+  /api/v4/integration/cash-in/available-stores:
+    get:
+      description: ''
+      responses:
+        '200':
+          description: Lista de sucursales autorizadas.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    stores:
+                    - storeId: 1
+                      name: Sucursal Centro
+                    - storeId: 2
+                      name: Sucursal Norte
+        '401':
+          description: No autorizado.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensaje de error.
+                  details:
+                    type: string
+                    description: Detalles del error.
+                required:
+                - message
+              examples:
+                Unauthorized:
+                  summary: Unauthorized
+                  value:
+                    message: No se encontraron sucursales autorizadas.
+      parameters: []
+      operationId: get_api-v4-integration-cash-in-available-stores
+  /api/v4/integration/cash-in/register-payment:
+    post:
+      description: ''
+      responses:
+        '201':
+          description: Pago registrado correctamente. Devuelve los datos del pago registrado.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  globalPaymentId:
+                    type: number
+                    description: ID del pago registrado.
+                  status:
+                    type: string
+                    enum:
+                    - success
+                    - pending_conciliation
+                    - cancelled
+                    description: 'success: conciliado; pending_conciliation: pendiente de conciliación;
+                      cancelled: cancelado.'
+                  totalAmount:
+                    type: number
+                    description: Monto total del pago registrado.
+                  appliedPayments:
+                    type: array
+                    description: Lista de créditos y montos aplicados en el pago registrado.
+                    items:
+                      properties:
+                        creditId:
+                          type: string
+                          description: ID del crédito.
+                        amount:
+                          type: string
+                          description: Monto aplicado.
+                      type: object
+                  message:
+                    type: string
+                    description: Mensaje de confirmación.
+                required:
+                - globalPaymentId
+                - appliedPayments
+                - totalAmount
+                - status
+              examples:
+                ? ''
+                : summary: ''
+                  value:
+                    globalPaymentId: 999
+                    status: success
+                    totalAmount: 800
+                    appliedPayments:
+                    - creditId: 100
+                      amount: 500
+                    - creditId: 101
+                      amount: 300
+                    message: Pago aplicado correctamente a 2 créditos.
+        '400':
+          description: 'Datos incorrectos o validación fallida. Posibles causas: validación de schema
+            (userId, payments, montos), sucursal no autorizada, monto mayor al permitido, créditos no
+            válidos o no pertenecen al usuario.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensaje de error principal.
+                  details:
+                    type: string
+                    description: Detalle de validación (cuando aplica).
+                required:
+                - message
+              examples:
+                UserId faltante o inválido:
+                  summary: UserId faltante o inválido
+                  value:
+                    message: Datos incorrectos.
+                    details: userId es requerido
+                ? ''
+                : summary: ''
+                  value:
+                    message: Datos incorrectos.
+                    details: Debe incluir al menos un pago
+                Pagos faltantes o inválidos:
+                  summary: Pagos faltantes o inválidos
+                  value:
+                    message: Datos incorrectos.
+                    details: Debe incluir al menos un pago
+                Monto o id del crédito inválido dentro de payments:
+                  summary: Monto o id del crédito inválido dentro de payments
+                  value:
+                    message: Datos incorrectos.
+                    details: payments[].amount debe ser un monto mayor a cero
+                La sucursal no está autorizada:
+                  summary: La sucursal no está autorizada
+                  value:
+                    message: La sucursal 999 no está autorizada o no existe.
+                El monto excede el monto a liquidar del crédito:
+                  summary: El monto excede el monto a liquidar del crédito
+                  value:
+                    message: El monto a pagar no puede ser mayor al monto a liquidar
+        '401':
+          description: No autorizado.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensaje de error.
+                  details:
+                    type: string
+                    description: Detalles del error.
+                required:
+                - message
+        '404':
+          description: Recurso no encontrado.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensaje de error.
+                  details:
+                    type: string
+                    description: Detalles del error.
+                required:
+                - message
+              examples:
+                Resumen de créditos no encontrado:
+                  summary: Resumen de créditos no encontrado
+                  value:
+                    message: No se encontró el resumen de los créditos para este usuario
+        '500':
+          description: Error al registrar el pago o operación no permitida (ej. fuera de horario de sucursal).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensaje de error.
+                  details:
+                    type: string
+                    description: Detalles del error.
+                required:
+                - message
+              examples:
+                'Fuera del horario de registro de pagos de la sucursal ':
+                  summary: 'Fuera del horario de registro de pagos de la sucursal '
+                  value:
+                    message: El horario de registro de pagos de la sucursal es de 09:00 a 18:00 Hora de
+                      México
+      parameters: []
+      operationId: post_api-v4-integration-cash-in-register-payment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: number
+                  default: '12345'
+                  description: ID del usuario obtenido de /api/v4/integration/cash-in/search.
+                storeId:
+                  type: number
+                  description: ID de la sucursal en la que se recibe el pago.
+                  default: '1'
+                payments:
+                  type: array
+                  items:
+                    properties:
+                      creditId:
+                        type: number
+                        default: '100'
+                        description: ID del crédito.
+                      amount:
+                        type: number
+                        default: '500'
+                        description: Monto a pagar.
+                    type: object
+                    required:
+                    - creditId
+                    - amount
+                  description: Lista de créditos y montos a pagar en la sucursal. Debe incluir al menos
+                    un pago.
+              required:
+              - userId
+              - storeId
+              - payments
+      x-readme: {}
+  /api/v4/integration/cash-in/payments:
+    get:
+      description: ''
+      responses:
+        '200':
+          description: Lista de pagos.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalPayments:
+                    type: integer
+                    description: Total de pagos registrados según el filtro aplicado.
+                  totalAmount:
+                    type: number
+                    description: Monto total de los pagos registrados según el filtro aplicado.
+                  data:
+                    type: array
+                    items:
+                      properties:
+                        globalPaymentId:
+                          type: integer
+                          description: ID del pago registrado
+                        status:
+                          type: string
+                          enum:
+                          - success
+                          - pending_conciliation
+                          - cancelled
+                        totalAmount:
+                          type: string
+                          description: Monto total del pago registrado.
+                        paymentDate:
+                          type: string
+                          description: Fecha y hora del pago registrado.
+                          format: date-time
+                        storeName:
+                          type: string
+                          description: Nombre de la sucursal en la que se recibió el pago.
+                      type: object
+                      required:
+                      - storeName
+                      - paymentDate
+                      - totalAmount
+                      - status
+                      - globalPaymentId
+                required:
+                - totalPayments
+                - data
+                - totalAmount
+        '400':
+          description: Párametros incorrectos.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  details:
+                    type: string
+                required:
+                - message
+        '401':
+          description: No autorizado.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  details:
+                    type: string
+                required:
+                - message
+      parameters:
+      - in: query
+        name: paymentId
+        schema:
+          type: string
+        description: Filtrar por ID de pago.
+      - in: query
+        name: minDate
+        schema:
+          type: string
+          format: date
+        description: Fecha mínima (YYYY-MM-DD o ISO).
+      - in: query
+        name: maxDate
+        schema:
+          type: string
+          format: date
+        description: Fecha máxima (YYYY-MM-DD o ISO).
+      - in: query
+        name: minAmount
+        schema:
+          type: integer
+      - in: query
+        name: maxAmount
+        schema:
+          type: integer
+      - in: query
+        name: stores
+        schema:
+          type: string
+        description: 'IDs de sucursal separados por coma (ej: 1,2,3).'
+      - in: query
+        name: status
+        schema:
+          type: string
+          enum:
+          - success
+          - pending_conciliation
+          - cancelled
+      - in: query
+        name: page
+        schema:
+          type: integer
+          default: '0'
+      - in: query
+        name: limit
+        schema:
+          type: integer
+          default: '10'
+        description: ''
+      - in: query
+        name: orderBy
+        schema:
+          type: string
+          enum:
+          - paymentDate
+          - paymentAmount
+          - paymentId
+          default: paymentDate
+      - in: query
+        name: orderDirection
+        schema:
+          type: string
+          enum:
+          - ASC
+          - DESC
+          default: DESC
+      operationId: get_api-v4-integration-cash-in-payments
+  /api/v4/integration/cash-in/payment-details/{paymentId}:
+    get:
+      description: ''
+      responses:
+        '200':
+          description: Detalle del pago.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  globalPaymentId:
+                    type: integer
+                    description: ID del pago registrado.
+                  status:
+                    type: string
+                    description: Estado del pago registrado.
+                    enum:
+                    - success
+                    - pending_conciliation
+                    - cancelled
+                  totalAmount:
+                    type: number
+                    description: Monto total del pago registrado.
+                  paymentDate:
+                    type: string
+                    description: Fecha y hora del pago registrado.
+                    format: date-time
+                  appliedPayments:
+                    type: array
+                    description: Lista de créditos y montos aplicados en el pago registrado.
+                    items:
+                      properties:
+                        creditId:
+                          type: integer
+                          description: ID del crédito.
+                        amount:
+                          type: string
+                          description: Monto aplicado.
+                      type: object
+                  storeName:
+                    type: string
+                    description: Nombre de la sucursal en la que se recibió el pago.
+                  storeId:
+                    type: number
+                    description: ID de la sucursal en la que se recibió el pago.
+                  receiptUrl:
+                    type: string
+                    description: URL del comprobante digital del pago registrado.
+                required:
+                - globalPaymentId
+                - status
+                - totalAmount
+                - paymentDate
+                - appliedPayments
+                - storeName
+                - storeId
+                - receiptUrl
+              examples:
+                ? ''
+                : summary: ''
+                  value:
+                    globalPaymentId: 0
+                    status: success
+                    totalAmount: 0
+                    paymentDate: '2026-03-24T17:19:30.750Z'
+                    appliedPayments:
+                    - creditId: 0
+                      amount: 0
+                    storeName: string
+                    storeId: 0
+                    receiptUrl: string
+        '400':
+          description: Id de pago inválido.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  details:
+                    type: string
+                required:
+                - message
+        '401':
+          description: No autorizado.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  details:
+                    type: string
+                required:
+                - message
+              examples:
+                ? ''
+                : summary: ''
+                  value:
+                    message: ID de pago inválido.
+      parameters:
+      - in: path
+        name: paymentId
+        schema:
+          type: integer
+        required: true
+        description: ID global del pago.
+      operationId: get_api-v4-integration-cash-in-payment-details-paymentid
+  /api/v4/ecommerce/integration/{partner-key}/login:
+    post:
+      summary: Obtener token
+      description: ''
+      operationId: obtener-token
+      parameters:
+      - name: partner-key
+        in: path
+        description: Código de validación de sucursal, se obtiene del dashboard de partner
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - username
+              - password
+              properties:
+                username:
+                  type: string
+                  description: Usuario del partner dashboard
+                password:
+                  type: string
+                  description: Password del partner dashboard
+            examples:
+              Request Example:
+                value:
+                  username: username
+                  password: password
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"token\": \"token\"\n}"
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    example: token
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"message\": \"No se proporcionaron los parámetros necesarios\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: No se proporcionaron los parámetros necesarios
+        '500':
+          description: '500'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"message\": \"Error desconocido al intentar la autenticación\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Error desconocido al intentar la autenticación
+      deprecated: false
+      security: []
+  /api/v4/ecommerce/integration/{partner-key}/application:
+    post:
+      summary: Generar orden
+      description: ''
+      operationId: generar-orden
+      parameters:
+      - name: partner-key
+        in: path
+        description: Código de validación de sucursal, se obtiene del dashboard de partner
+        schema:
+          type: string
+        required: true
+      - name: x-auth-token
+        in: header
+        description: Token de autenticación
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - orderId
+              - requestedAmount
+              - productDescription
+              - customerName
+              - customerEmail
+              - customerPhone
+              properties:
+                orderId:
+                  type: string
+                  description: Número de orden interna del Partner
+                  default: '0000'
+                requestedAmount:
+                  type: number
+                  description: Monto requerido
+                  default: 0
+                  format: float
+                productDescription:
+                  type: string
+                  description: Descripción del producto
+                  default: Producto
+                customerName:
+                  type: string
+                  description: Nombre del cliente
+                  default: Jhon Doe
+                customerEmail:
+                  type: string
+                  description: e-mail del cliente
+                  default: emailname@email.com
+                customerPhone:
+                  type: string
+                  description: Número telefónico del cliente
+                  default: '3331112233'
+                successUrl:
+                  type: string
+                  description: Url de redirección para flujo de crédito autorizado
+                  default: https://url
+                failureUrl:
+                  type: string
+                  description: Url de redirección para flujo de solicitud cancelada
+                  default: https://url
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"message\": \"Información\",\n    \"url\": \"Url de solicitud\",\n \
+                    \   \"atrato_id\": 0000\n}"
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"message\": \"Parámetros incorrectos\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Parámetros incorrectos
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"msg\": \"Token no válido\"\n}"
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example: Token no válido
+        '422':
+          description: '422'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"message\": \"El monto no está dentro del rango permitido\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: El monto no está dentro del rango permitido
+        '500':
+          description: '500'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"message\": \"Error desconocido al evaluar financiamiento\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Error desconocido al evaluar financiamiento
+      deprecated: false
+      security: []
+  /api/v4/ecommerce/integration/{partner-key}/order/{order-id}:
+    get:
+      summary: Consultar orden
+      description: ''
+      operationId: consulta-de-orden
+      parameters:
+      - name: partner-key
+        in: path
+        description: Código de validación de sucursal, se obtiene del dashboard de partner
+        schema:
+          type: string
+        required: true
+      - name: order-id
+        in: path
+        description: Número de orden interna del Partner
+        schema:
+          type: string
+        required: true
+      - name: x-auth-token
+        in: header
+        description: Token de autenticación
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"event_type\": \"query\",\n    \"event_data\": {\n        \"atrato_id\"\
+                    : 2922,\n        \"atrato_application_id\": 8144,\n        \"status\": \"Desembolsado\"\
+                    ,\n        \"status_id\": 19,\n        \"status_code\": \"DESEMBOLSADO\",\n      \
+                    \  \"order_id\": \"AAAA-BBBBB-CCCC-DDDD-EEEEE70703\",\n        \"order_number\": \"\
+                    AAAA-BBBBB-CCCC-DDDD-EEEEE70703\",\n        \"customer\": {\n            \"name\"\
+                    : \"RAMON LOPEZ PEREZ\",\n            \"email\": \"ramon.lopez@email.com\",\n    \
+                    \        \"phone\": \"+523331230000\",\n            \"address\": {\n             \
+                    \   \"street\": \"Calle Juarez\",\n                \"ext_number\": \"12\",\n     \
+                    \           \"int_number\": null,\n                \"district\": \"Roma\",\n     \
+                    \           \"postal_code\": \"28000\",\n                \"city\": \"Guadalajara\"\
+                    \n            }\n        },\n        \"credit\": {\n            \"creditId\": 2818,\n\
+                    \            \"purchaseAmount\": 1000,\n            \"totalFinanced\": 1000,\n   \
+                    \         \"merchantComision\": 0,\n            \"interesRate\": 75,\n           \
+                    \ \"installments\": 6,\n            \"installmentValue\": 211.41,\n            \"\
+                    biweekly\": false,\n            \"creditTotalValue\": 1268.46\n        },\n      \
+                    \  \"disbursement\": {\n            \"transactionId\": 464,\n            \"trackingKey\"\
+                    : \"SUC261TX464\"\n        },\n        \"timestamp\": 1729023133264,\n        \"observations\"\
+                    : \"\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  event_type:
+                    type: string
+                    example: query
+                  event_data:
+                    type: object
+                    properties:
+                      atrato_id:
+                        type: integer
+                        example: 2922
+                        default: 0
+                      atrato_application_id:
+                        type: integer
+                        example: 8144
+                        default: 0
+                      status:
+                        type: string
+                        example: Desembolsado
+                      status_id:
+                        type: integer
+                        example: 19
+                        default: 0
+                      status_code:
+                        type: string
+                        example: DESEMBOLSADO
+                      order_id:
+                        type: string
+                        example: AAAA-BBBBB-CCCC-DDDD-EEEEE70703
+                      order_number:
+                        type: string
+                        example: AAAA-BBBBB-CCCC-DDDD-EEEEE70703
+                      customer:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                            example: RAMON LOPEZ PEREZ
+                          email:
+                            type: string
+                            example: ramon.lopez@email.com
+                          phone:
+                            type: string
+                            example: '+523331230000'
+                          address:
+                            type: object
+                            properties:
+                              street:
+                                type: string
+                                example: Calle Juarez
+                              ext_number:
+                                type: string
+                                example: '12'
+                              int_number: {}
+                              district:
+                                type: string
+                                example: Roma
+                              postal_code:
+                                type: string
+                                example: '28000'
+                              city:
+                                type: string
+                                example: Guadalajara
+                      credit:
+                        type: object
+                        properties:
+                          creditId:
+                            type: integer
+                            example: 2818
+                            default: 0
+                          purchaseAmount:
+                            type: integer
+                            example: 1000
+                            default: 0
+                          totalFinanced:
+                            type: integer
+                            example: 1000
+                            default: 0
+                          merchantComision:
+                            type: integer
+                            example: 0
+                            default: 0
+                          interesRate:
+                            type: integer
+                            example: 75
+                            default: 0
+                          installments:
+                            type: integer
+                            example: 6
+                            default: 0
+                          installmentValue:
+                            type: number
+                            example: 211.41
+                            default: 0
+                          biweekly:
+                            type: boolean
+                            example: false
+                            default: true
+                          creditTotalValue:
+                            type: number
+                            example: 1268.46
+                            default: 0
+                      disbursement:
+                        type: object
+                        properties:
+                          transactionId:
+                            type: integer
+                            example: 464
+                            default: 0
+                          trackingKey:
+                            type: string
+                            example: SUC261TX464
+                      timestamp:
+                        type: integer
+                        example: 1729023133264
+                        default: 0
+                      observations:
+                        type: string
+                        example: ''
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"message\": \"Parámetros incorrectos\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Parámetros incorrectos
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"msg\": \"Unauthorized\"\n}"
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example: Unauthorized
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"message\": \"No se encontró la orden\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: No se encontró la orden
+        '500':
+          description: '500'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"message\": \"Mensaje\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Mensaje
+      deprecated: false
+      security: []
+  /api/v4/ecommerce/integration/{partner-key}/order/{order-id}/delivery:
+    post:
+      summary: Registrar entrega
+      description: ''
+      operationId: registrar-entrega
+      parameters:
+      - name: partner-key
+        in: path
+        description: Código de validación de sucursal, se obtiene del dashboard de partner
+        schema:
+          type: string
+        required: true
+      - name: order-id
+        in: path
+        description: Número de orden interna del Partner
+        schema:
+          type: string
+        required: true
+      - name: x-auth-token
+        in: header
+        description: Token de autenticación
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - product
+              - id_internal_folio_partner
+              properties:
+                name:
+                  type: string
+                  description: Nombre de usuario que registra la entrega
+                product:
+                  type: string
+                  description: Descripción o nombre del producto entregado
+                id_internal_folio_partner:
+                  type: string
+                  description: Folio de control interno del partner
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"message\": \"Producto marcado como entregado\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Producto marcado como entregado
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"message\": \"Parámetros incorrectos\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Parámetros incorrectos
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"msg\": \"Unauthorized\"\n}"
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example: Unauthorized
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"message\": \"No se encontró la orden\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: No se encontró la orden
+        '500':
+          description: '500'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"message\": \"Error desconocido al entregar producto\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Error desconocido al entregar producto
+      deprecated: false
+      security: []
+  /api/v4/ecommerce/integration/{partner-key}/order/{order-id}/cancel:
+    post:
+      summary: Solicitar cancelación
+      description: ''
+      operationId: solicitar-cancelacion
+      parameters:
+      - name: partner-key
+        in: path
+        description: Código de validación de sucursal, se obtiene del dashboard de partner
+        schema:
+          type: string
+        required: true
+      - name: order-id
+        in: path
+        description: Número de orden interna del Partner
+        schema:
+          type: string
+        required: true
+      - name: x-auth-token
+        in: header
+        description: Token de autenticación
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - reason
+              properties:
+                name:
+                  type: string
+                  description: Nombre de usuario quien solicita
+                reason:
+                  type: string
+                  description: Motivo de cancelación
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"message\": \"Solicitud de cancelación enviada\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Solicitud de cancelación enviada
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"message\": \"Parámetros incorrectos\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Parámetros incorrectos
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"msg\": \"Unauthorized\"\n}"
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example: Unauthorized
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"message\": \"No se encontró la orden\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: No se encontró la orden
+        '500':
+          description: '500'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"message\": \"Error desconocido al cancelar la solicitud\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Error desconocido al cancelar la solicitud
+      deprecated: false
+      security: []
+  /api/v4/ecommerce/integration/{partner-key}/disbursement:
+    get:
+      summary: Consulta de desembolsos
+      description: ''
+      operationId: consulta-de-desembolsos
+      parameters:
+      - name: partner-key
+        in: path
+        description: Código de validación de sucursal, se obtiene del dashboard de partner
+        schema:
+          type: string
+        required: true
+      - name: startDate
+        in: query
+        description: Fecha inicial del periodo de consulta, formato YYYY-MM-DD
+        schema:
+          type: string
+      - name: endDate
+        in: query
+        description: Fecha final del periodo de consulta, formato YYYY-MM-DD
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Número de página a consultar
+        schema:
+          type: integer
+          format: int32
+      - name: recordsPerPage
+        in: query
+        description: Registros por página
+        schema:
+          type: integer
+          format: int32
+      - name: x-auth-token
+        in: header
+        description: Token de autenticación
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"data\": [\n        {\n            \"atrato_id\": 2660,\n          \
+                    \  \"order_id\": \"AAAA-BBBBB-CCCC-DDDD-EEEEE18\",\n            \"atrato_application_id\"\
+                    : 7745,\n            \"disbursed\": 1,\n            \"transfer_date\": \"2024-09-13T22:10:56.000Z\"\
+                    ,\n            \"amount_disbursed\": 1000,\n            \"tracking_key\": \"SUC261TX429\"\
+                    ,\n            \"transactionId\": 429,\n            \"merchant\": \"Ecommerce merchant\"\
+                    ,\n            \"store\": \"Ecommerce store\",\n            \"disbursement_status\"\
+                    : \"Aplicada\"\n        },\n        {\n            \"atrato_id\": 2662,\n        \
+                    \    \"order_id\": \"AAAA-BBBBB-CCCC-DDDD-EEEEE21\",\n            \"atrato_application_id\"\
+                    : 7747,\n            \"disbursed\": 1,\n            \"transfer_date\": \"2024-09-13T22:10:56.000Z\"\
+                    ,\n            \"amount_disbursed\": 1000,\n            \"tracking_key\": \"SUC261TX429\"\
+                    ,\n            \"transactionId\": 429,\n            \"merchant\": \"Ecommerce merchant\"\
+                    ,\n            \"store\": \"Ecommerce store\",\n            \"disbursement_status\"\
+                    : \"Aplicada\"\n        },\n        {\n            \"atrato_id\": 2658,\n        \
+                    \    \"order_id\": \"AAAA-BBBBB-CCCC-DDDD-EEEEE16\",\n            \"atrato_application_id\"\
+                    : 7744,\n            \"disbursed\": 1,\n            \"transfer_date\": \"2024-09-13T21:41:37.000Z\"\
+                    ,\n            \"amount_disbursed\": 1111,\n            \"tracking_key\": \"SUC261TX428\"\
+                    ,\n            \"transactionId\": 428,\n            \"merchant\": \"Ecommerce merchant\"\
+                    ,\n            \"store\": \"Ecommerce store\",\n            \"disbursement_status\"\
+                    : \"Aplicada\"\n        },\n        {\n            \"atrato_id\": 2657,\n        \
+                    \    \"order_id\": \"AAAA-BBBBB-CCCC-DDDD-EEEEE15\",\n            \"atrato_application_id\"\
+                    : 7743,\n            \"disbursed\": 1,\n            \"transfer_date\": \"2024-09-13T17:55:28.000Z\"\
+                    ,\n            \"amount_disbursed\": 1111,\n            \"tracking_key\": \"SUC261TX427\"\
+                    ,\n            \"transactionId\": 427,\n            \"merchant\": \"Ecommerce merchant\"\
+                    ,\n            \"store\": \"Ecommerce store\",\n            \"disbursement_status\"\
+                    : \"Aplicada\"\n        },\n        {\n            \"atrato_id\": 2656,\n        \
+                    \    \"order_id\": \"AAAA-BBBBB-CCCC-DDDD-EEEEE14\",\n            \"atrato_application_id\"\
+                    : 7741,\n            \"disbursed\": 1,\n            \"transfer_date\": \"2024-09-13T14:47:16.000Z\"\
+                    ,\n            \"amount_disbursed\": 1111,\n            \"tracking_key\": \"SUC261TX426\"\
+                    ,\n            \"transactionId\": 426,\n            \"merchant\": \"Ecommerce merchant\"\
+                    ,\n            \"store\": \"Ecommerce store\",\n            \"disbursement_status\"\
+                    : \"Aplicada\"\n        },\n        {\n            \"atrato_id\": 2649,\n        \
+                    \    \"order_id\": \"AAAA-BBBBB-CCCC-DDDD-EEEEE12\",\n            \"atrato_application_id\"\
+                    : 7731,\n            \"disbursed\": 1,\n            \"transfer_date\": \"2024-09-12T16:25:11.000Z\"\
+                    ,\n            \"amount_disbursed\": 1111,\n            \"tracking_key\": \"SUC261TX425\"\
+                    ,\n            \"transactionId\": 425,\n            \"merchant\": \"Ecommerce merchant\"\
+                    ,\n            \"store\": \"Ecommerce store\",\n            \"disbursement_status\"\
+                    : \"Aplicada\"\n        },\n        {\n            \"atrato_id\": 2648,\n        \
+                    \    \"order_id\": \"AAAA-BBBBB-CCCC-DDDD-EEEEE11\",\n            \"atrato_application_id\"\
+                    : 7730,\n            \"disbursed\": 1,\n            \"transfer_date\": \"2024-09-12T16:18:38.000Z\"\
+                    ,\n            \"amount_disbursed\": 1111,\n            \"tracking_key\": \"SUC261TX424\"\
+                    ,\n            \"transactionId\": 424,\n            \"merchant\": \"Ecommerce merchant\"\
+                    ,\n            \"store\": \"Ecommerce store\",\n            \"disbursement_status\"\
+                    : \"Aplicada\"\n        },\n        {\n            \"atrato_id\": 2647,\n        \
+                    \    \"order_id\": \"123000001234\",\n            \"atrato_application_id\": 7729,\n\
+                    \            \"disbursed\": 1,\n            \"transfer_date\": \"2024-09-12T15:59:01.000Z\"\
+                    ,\n            \"amount_disbursed\": 1111,\n            \"tracking_key\": \"SUC261TX423\"\
+                    ,\n            \"transactionId\": 423,\n            \"merchant\": \"Ecommerce merchant\"\
+                    ,\n            \"store\": \"Ecommerce store\",\n            \"disbursement_status\"\
+                    : \"Aplicada\"\n        }\n    ],\n    \"totalRecords\": 7,\n    \"recordsPerPage\"\
+                    : 10,\n    \"currentPage\": 1,\n    \"totalPages\": 1\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        atrato_id:
+                          type: integer
+                          example: 2660
+                          default: 0
+                        order_id:
+                          type: string
+                          example: AAAA-BBBBB-CCCC-DDDD-EEEEE18
+                        atrato_application_id:
+                          type: integer
+                          example: 7745
+                          default: 0
+                        disbursed:
+                          type: integer
+                          example: 1
+                          default: 0
+                        transfer_date:
+                          type: string
+                          example: '2024-09-13T22:10:56.000Z'
+                        amount_disbursed:
+                          type: integer
+                          example: 1000
+                          default: 0
+                        tracking_key:
+                          type: string
+                          example: SUC261TX429
+                        transactionId:
+                          type: integer
+                          example: 429
+                          default: 0
+                        merchant:
+                          type: string
+                          example: Ecommerce merchant
+                        store:
+                          type: string
+                          example: Ecommerce store
+                        disbursement_status:
+                          type: string
+                          example: Aplicada
+                  totalRecords:
+                    type: integer
+                    example: 7
+                    default: 0
+                  recordsPerPage:
+                    type: integer
+                    example: 10
+                    default: 0
+                  currentPage:
+                    type: integer
+                    example: 1
+                    default: 0
+                  totalPages:
+                    type: integer
+                    example: 1
+                    default: 0
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"message\": \"Valor de fechas incorrecto\"\n}"
+              schema:
+                oneOf:
+                - type: object
+                  properties:
+                    message:
+                      type: string
+                      example: Parámetros incorrectos
+                - type: object
+                  properties:
+                    message:
+                      type: string
+                      example: Valor de fechas incorrecto
+        '500':
+          description: '500'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"message\": \"La consulta no pudo ser procesada satisfactoriamente\"\
+                    \n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: La consulta no pudo ser procesada satisfactoriamente
+      deprecated: false
+      security: []
+  /api/v4/ecommerce/integration/{partner-key}/disbursement/{transaction-id}:
+    get:
+      summary: Consulta de desembolsos por número de transacción
+      description: ''
+      operationId: consulta-de-desembolsos-orden
+      parameters:
+      - name: partner-key
+        in: path
+        description: Código de validación de sucursal, se obtiene del dashboard de partner
+        schema:
+          type: string
+        required: true
+      - name: transaction-id
+        in: path
+        description: Número de transacción de desembolso
+        schema:
+          type: string
+        required: true
+      - name: x-auth-token
+        in: header
+        description: Token de autenticación
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"amount\": 1000,\n    \"transactionId\": 464,\n    \"trackingKey\":\
+                    \ \"SUC261TX464\",\n    \"balance\": [\n        {\n            \"id\": 354,\n    \
+                    \        \"creationDate\": \"2024-10-15 18:48:54\",\n            \"type\": \"CONTRIBUTION\"\
+                    ,\n            \"status\": \"APPLIED\",\n            \"amount\": 1000,\n         \
+                    \   \"previousBalance\": 0,\n            \"actualBalance\": 1000,\n            \"\
+                    credit\": {\n                \"orderId\": \"AAAA-BBBBB-CCCC-DDDD-EEEEE70703\",\n \
+                    \               \"atratoCreditId\": 2818,\n                \"atratoApplicationId\"\
+                    : 8144,\n                \"amountPurchase\": 1000,\n                \"amountGranted\"\
+                    : 1000,\n                \"merchantComission\": \"0%\",\n                \"comissionAmount\"\
+                    : 0,\n                \"ivaAmount\": 0,\n                \"disbursementAmount\": 1000\n\
+                    \            }\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  amount:
+                    type: integer
+                    example: 1000
+                    default: 0
+                  transactionId:
+                    type: integer
+                    example: 464
+                    default: 0
+                  trackingKey:
+                    type: string
+                    example: SUC261TX464
+                  balance:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 354
+                          default: 0
+                        creationDate:
+                          type: string
+                          example: '2024-10-15 18:48:54'
+                        type:
+                          type: string
+                          example: CONTRIBUTION
+                        status:
+                          type: string
+                          example: APPLIED
+                        amount:
+                          type: integer
+                          example: 1000
+                          default: 0
+                        previousBalance:
+                          type: integer
+                          example: 0
+                          default: 0
+                        actualBalance:
+                          type: integer
+                          example: 1000
+                          default: 0
+                        credit:
+                          type: object
+                          properties:
+                            orderId:
+                              type: string
+                              example: AAAA-BBBBB-CCCC-DDDD-EEEEE70703
+                            atratoCreditId:
+                              type: integer
+                              example: 2818
+                              default: 0
+                            atratoApplicationId:
+                              type: integer
+                              example: 8144
+                              default: 0
+                            amountPurchase:
+                              type: integer
+                              example: 1000
+                              default: 0
+                            amountGranted:
+                              type: integer
+                              example: 1000
+                              default: 0
+                            merchantComission:
+                              type: string
+                              example: 0%
+                            comissionAmount:
+                              type: integer
+                              example: 0
+                              default: 0
+                            ivaAmount:
+                              type: integer
+                              example: 0
+                              default: 0
+                            disbursementAmount:
+                              type: integer
+                              example: 1000
+                              default: 0
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"message\": \"Valor de fechas incorrecto\"\n}"
+              schema:
+                oneOf:
+                - type: object
+                  properties:
+                    message:
+                      type: string
+                      example: Parámetros incorrectos
+                - type: object
+                  properties:
+                    message:
+                      type: string
+                      example: Valor de fechas incorrecto
+        '500':
+          description: '500'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"message\": \"La consulta no pudo ser procesada satisfactoriamente\"\
+                    \n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: La consulta no pudo ser procesada satisfactoriamente
+      deprecated: false
+      security: []
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: x-auth-token

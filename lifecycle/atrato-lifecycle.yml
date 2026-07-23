@@ -1,0 +1,18 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.atratopago.com/
+versioning:
+  scheme: uri-path
+  current: v4
+  docs: https://docs.atratopago.com/
+environments:
+  api_sandbox: https://api-sandbox.atratopago.com
+  partner_dashboard_production: https://comercios.atratopago.com/v3/partner
+  partner_dashboard_sandbox: https://sandbox-comercios.atratopago.com/v3/partner
+deprecation:
+  policy_documented: false
+  sunset_header: false
+status_page: null
+sla:
+  documented: false
+deprecated_operations: []

@@ -1,0 +1,16 @@
+{
+  "provider": "atrato",
+  "sources": [
+    "atrato-ecommerce-api-openapi.yml",
+    "atrato-integration-api-openapi.yml"
+  ],
+  "outputs": [
+    "atrato-ecommerce-api-openapi.yml",
+    "atrato-integration-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

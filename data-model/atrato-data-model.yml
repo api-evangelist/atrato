@@ -1,0 +1,43 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/atrato-partners-openapi.yml + https://docs.atratopago.com/reference/
+entities:
+- name: User
+  id: userId
+  summary: Atrato borrower identified by CIE reference (starts with 'U') or applicationId.
+- name: Credit
+  id: creditId
+  summary: An active BNPL credit belonging to a user, with debtToDate / settleAmount / installmentAmount.
+- name: Store
+  id: storeId
+  summary: Authorized partner branch where an in-store payment is received.
+- name: Payment
+  id: globalPaymentId
+  summary: A cash-in payment applied to one or more credits; status success | pending_conciliation | cancelled.
+- name: Order
+  id: order-id / atrato_application_id
+  summary: An ecommerce checkout order / credit application generated for a partner-key.
+- name: Disbursement
+  id: transactionId
+  summary: Funds disbursed to the merchant for a confirmed order; carries trackingKey.
+relationships:
+- from: Credit
+  type: belongs_to
+  to: User
+  via: userId
+- from: Payment
+  type: belongs_to
+  to: User
+  via: userId
+- from: Payment
+  type: has_many
+  to: Credit
+  via: appliedPayments[].creditId
+- from: Payment
+  type: belongs_to
+  to: Store
+  via: storeId
+- from: Order
+  type: has_one
+  to: Disbursement
+  via: transactionId

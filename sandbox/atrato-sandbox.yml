@@ -1,0 +1,17 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.atratopago.com/reference/webhook.md + reference specs
+test_vs_live:
+  model: separate-host
+  note: Atrato ships a dedicated sandbox host and a sandbox partner dashboard; no test-vs-live key prefix
+    is used (auth is username/password -> x-auth-token).
+hosts:
+  api_sandbox: https://api-sandbox.atratopago.com
+  partner_dashboard_sandbox: https://sandbox-comercios.atratopago.com/v3/partner
+  partner_dashboard_production: https://comercios.atratopago.com/v3/partner
+credentials:
+  how: Partner-dashboard username/password exchanged at POST /api/v4/integration/login for a 5-minute
+    x-auth-token; ecommerce partner-key from dashboard Development > API.
+  published_test_values: null
+note: Atrato is a BNPL provider; the docs do not publish magic test card numbers or fixed test identifiers.
+  Sandbox is exercised with real partner sandbox credentials.

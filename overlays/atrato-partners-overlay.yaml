@@ -1,0 +1,25 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Atrato Partners API
+  version: 1.0.0
+extends: openapi/atrato-partners-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-18'
+    x-apievangelist-source: docs.atratopago.com reference (per-operation OpenAPI blocks merged)
+- target: $.paths['/api/v4/integration/cash-in/search'].get
+  update:
+    tags:
+    - cash-in
+    summary: Buscar usuario y créditos activos
+- target: $.paths['/api/v4/integration/cash-in/register-payment'].post
+  update:
+    tags:
+    - cash-in
+    summary: Registrar pago en tienda
+- target: $.paths['/api/v4/ecommerce/integration/{partner-key}/application'].post
+  update:
+    tags:
+    - ecommerce
+    summary: Generar orden de crédito

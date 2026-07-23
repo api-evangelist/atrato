@@ -1,0 +1,696 @@
+openapi: 3.1.0
+info:
+  title: Atrato Partners Ecommerce Integration API
+  version: '1.0'
+  description: 'Atrato Partners API (api-partners) for buy-now-pay-later integration: in-store cash-in payment collection and ecommerce checkout order generation. Reconstructed verbatim from Atrato''s per-operation OpenAPI definitions published in the ReadMe developer reference at docs.atratopago.com.'
+servers:
+- url: https://api-sandbox.atratopago.com
+  description: Sandbox
+security:
+- sec0: []
+tags:
+- name: Integration
+paths:
+  /api/v4/integration/login:
+    post:
+      summary: Autenticación
+      description: ''
+      operationId: autenticación
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - username
+              - password
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVC19.eyJwYXJ0bmVyIjprImlkQ29tZXJjaW8iOjEsIndsczZXJuYW1lIjoiRGllZ29aYXJhdGUiLCJpc0VkaXRvciI6dHJ1ZSwiaXNNYXN0ZXIiOnRydWUsImlzQWN0aXZlIjp0cnVlLCJpZCI6MTAsImZlY2hhQ3JlYWNpb24iOiIyMDIxLTA2LTIwVDAxOjMzOjQyLjAwMFoifSwiaWF0IjoxNjcyMDc5NzkzLCJleHAiOjE2NzIxMzAxOTN9.XNKesoKpaztn7oMRkl73dN8c-Mj4v_dH9y5obq7QTAU\",\n}"
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                required:
+                - token
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"msg\": \"No se encontró cuenta registrada para usuario: {user}\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'No se encontró cuenta registrada para usuario: {user}'
+      deprecated: false
+      security: []
+      tags:
+      - Integration
+  /api/v4/integration/cash-in/search:
+    get:
+      description: ''
+      responses:
+        '200':
+          description: Usuario encontrado con créditos activos. Devuelve los datos del usuario y los créditos activos con montos disponibles para pago.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  userName:
+                    type: string
+                    default: ''
+                    description: Nombre del cliente.
+                  userId:
+                    type: integer
+                    description: ID del usuario (usar en el registro de pago).
+                  credits:
+                    type: object
+                    properties:
+                      creditId:
+                        type: integer
+                        description: ID del crédito (usar en el registro de pago).
+                      debtToDate:
+                        type: number
+                        description: Deuda al día.
+                      settleAmount:
+                        type: number
+                        description: Monto para liquidar.
+                      installmentAmount:
+                        type: number
+                        description: Monto de la mensualidad.
+                      merchantName:
+                        type: string
+                        description: Nombre del comercio al que pertenece el crédito.
+                required:
+                - userName
+              examples:
+                ? ''
+                : summary: ''
+                  value:
+                    userName: string
+                    userId: 0
+                    credits:
+                    - creditId: 0
+                      debtToDate: 0
+                      settleAmount: 0
+                      merchantName: string
+                      installmentAmount: 0
+        '400':
+          description: No se proporcionó ningún criterio de búsqueda. Se requiere al menos uno de los dos parámetros.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensaje de error.
+                  details:
+                    type: string
+                    description: Detalles del error.
+                required:
+                - message
+              examples:
+                ? ''
+                : summary: ''
+                  value:
+                    message: No se proporcionó ningún criterio de búsqueda
+        '401':
+          description: No se proporcionó el token de autenticación. Se debe usar el token obtenido con el endpoint /api/v4/integration/login.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensaje de error.
+                  details:
+                    type: string
+                    description: Detalles del error.
+                required:
+                - message
+              examples:
+                ? ''
+                : summary: ''
+                  value:
+                    message: string
+                    details: string
+        '404':
+          description: No se encontró ningún usuario con los criterios de búsqueda proporcionados.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensaje de error.
+                  details:
+                    type: string
+                    description: Detalles del error.
+                required:
+                - message
+              examples:
+                ? ''
+                : summary: ''
+                  value:
+                    message: No se encontraron créditos activos para este usuario
+      parameters:
+      - in: query
+        name: reference
+        schema:
+          type: string
+          default: ''
+        description: Número de referencia CIE asignado al cliente (inicia con la letra 'U').
+      - in: query
+        name: applicationId
+        schema:
+          type: integer
+          default: ''
+        description: ID de la solicitud de crédito.
+      operationId: get_api-v4-integration-cash-in-search
+      tags:
+      - Integration
+  /api/v4/integration/cash-in/available-stores:
+    get:
+      description: ''
+      responses:
+        '200':
+          description: Lista de sucursales autorizadas.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    stores:
+                    - storeId: 1
+                      name: Sucursal Centro
+                    - storeId: 2
+                      name: Sucursal Norte
+        '401':
+          description: No autorizado.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensaje de error.
+                  details:
+                    type: string
+                    description: Detalles del error.
+                required:
+                - message
+              examples:
+                Unauthorized:
+                  summary: Unauthorized
+                  value:
+                    message: No se encontraron sucursales autorizadas.
+      parameters: []
+      operationId: get_api-v4-integration-cash-in-available-stores
+      tags:
+      - Integration
+  /api/v4/integration/cash-in/register-payment:
+    post:
+      description: ''
+      responses:
+        '201':
+          description: Pago registrado correctamente. Devuelve los datos del pago registrado.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  globalPaymentId:
+                    type: number
+                    description: ID del pago registrado.
+                  status:
+                    type: string
+                    enum:
+                    - success
+                    - pending_conciliation
+                    - cancelled
+                    description: 'success: conciliado; pending_conciliation: pendiente de conciliación; cancelled: cancelado.'
+                  totalAmount:
+                    type: number
+                    description: Monto total del pago registrado.
+                  appliedPayments:
+                    type: array
+                    description: Lista de créditos y montos aplicados en el pago registrado.
+                    items:
+                      properties:
+                        creditId:
+                          type: string
+                          description: ID del crédito.
+                        amount:
+                          type: string
+                          description: Monto aplicado.
+                      type: object
+                  message:
+                    type: string
+                    description: Mensaje de confirmación.
+                required:
+                - globalPaymentId
+                - appliedPayments
+                - totalAmount
+                - status
+              examples:
+                ? ''
+                : summary: ''
+                  value:
+                    globalPaymentId: 999
+                    status: success
+                    totalAmount: 800
+                    appliedPayments:
+                    - creditId: 100
+                      amount: 500
+                    - creditId: 101
+                      amount: 300
+                    message: Pago aplicado correctamente a 2 créditos.
+        '400':
+          description: 'Datos incorrectos o validación fallida. Posibles causas: validación de schema (userId, payments, montos), sucursal no autorizada, monto mayor al permitido, créditos no válidos o no pertenecen al usuario.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensaje de error principal.
+                  details:
+                    type: string
+                    description: Detalle de validación (cuando aplica).
+                required:
+                - message
+              examples:
+                UserId faltante o inválido:
+                  summary: UserId faltante o inválido
+                  value:
+                    message: Datos incorrectos.
+                    details: userId es requerido
+                ? ''
+                : summary: ''
+                  value:
+                    message: Datos incorrectos.
+                    details: Debe incluir al menos un pago
+                Pagos faltantes o inválidos:
+                  summary: Pagos faltantes o inválidos
+                  value:
+                    message: Datos incorrectos.
+                    details: Debe incluir al menos un pago
+                Monto o id del crédito inválido dentro de payments:
+                  summary: Monto o id del crédito inválido dentro de payments
+                  value:
+                    message: Datos incorrectos.
+                    details: payments[].amount debe ser un monto mayor a cero
+                La sucursal no está autorizada:
+                  summary: La sucursal no está autorizada
+                  value:
+                    message: La sucursal 999 no está autorizada o no existe.
+                El monto excede el monto a liquidar del crédito:
+                  summary: El monto excede el monto a liquidar del crédito
+                  value:
+                    message: El monto a pagar no puede ser mayor al monto a liquidar
+        '401':
+          description: No autorizado.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensaje de error.
+                  details:
+                    type: string
+                    description: Detalles del error.
+                required:
+                - message
+        '404':
+          description: Recurso no encontrado.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensaje de error.
+                  details:
+                    type: string
+                    description: Detalles del error.
+                required:
+                - message
+              examples:
+                Resumen de créditos no encontrado:
+                  summary: Resumen de créditos no encontrado
+                  value:
+                    message: No se encontró el resumen de los créditos para este usuario
+        '500':
+          description: Error al registrar el pago o operación no permitida (ej. fuera de horario de sucursal).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensaje de error.
+                  details:
+                    type: string
+                    description: Detalles del error.
+                required:
+                - message
+              examples:
+                'Fuera del horario de registro de pagos de la sucursal ':
+                  summary: 'Fuera del horario de registro de pagos de la sucursal '
+                  value:
+                    message: El horario de registro de pagos de la sucursal es de 09:00 a 18:00 Hora de México
+      parameters: []
+      operationId: post_api-v4-integration-cash-in-register-payment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: number
+                  default: '12345'
+                  description: ID del usuario obtenido de /api/v4/integration/cash-in/search.
+                storeId:
+                  type: number
+                  description: ID de la sucursal en la que se recibe el pago.
+                  default: '1'
+                payments:
+                  type: array
+                  items:
+                    properties:
+                      creditId:
+                        type: number
+                        default: '100'
+                        description: ID del crédito.
+                      amount:
+                        type: number
+                        default: '500'
+                        description: Monto a pagar.
+                    type: object
+                    required:
+                    - creditId
+                    - amount
+                  description: Lista de créditos y montos a pagar en la sucursal. Debe incluir al menos un pago.
+              required:
+              - userId
+              - storeId
+              - payments
+      x-readme: {}
+      tags:
+      - Integration
+  /api/v4/integration/cash-in/payments:
+    get:
+      description: ''
+      responses:
+        '200':
+          description: Lista de pagos.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalPayments:
+                    type: integer
+                    description: Total de pagos registrados según el filtro aplicado.
+                  totalAmount:
+                    type: number
+                    description: Monto total de los pagos registrados según el filtro aplicado.
+                  data:
+                    type: array
+                    items:
+                      properties:
+                        globalPaymentId:
+                          type: integer
+                          description: ID del pago registrado
+                        status:
+                          type: string
+                          enum:
+                          - success
+                          - pending_conciliation
+                          - cancelled
+                        totalAmount:
+                          type: string
+                          description: Monto total del pago registrado.
+                        paymentDate:
+                          type: string
+                          description: Fecha y hora del pago registrado.
+                          format: date-time
+                        storeName:
+                          type: string
+                          description: Nombre de la sucursal en la que se recibió el pago.
+                      type: object
+                      required:
+                      - storeName
+                      - paymentDate
+                      - totalAmount
+                      - status
+                      - globalPaymentId
+                required:
+                - totalPayments
+                - data
+                - totalAmount
+        '400':
+          description: Párametros incorrectos.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  details:
+                    type: string
+                required:
+                - message
+        '401':
+          description: No autorizado.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  details:
+                    type: string
+                required:
+                - message
+      parameters:
+      - in: query
+        name: paymentId
+        schema:
+          type: string
+        description: Filtrar por ID de pago.
+      - in: query
+        name: minDate
+        schema:
+          type: string
+          format: date
+        description: Fecha mínima (YYYY-MM-DD o ISO).
+      - in: query
+        name: maxDate
+        schema:
+          type: string
+          format: date
+        description: Fecha máxima (YYYY-MM-DD o ISO).
+      - in: query
+        name: minAmount
+        schema:
+          type: integer
+      - in: query
+        name: maxAmount
+        schema:
+          type: integer
+      - in: query
+        name: stores
+        schema:
+          type: string
+        description: 'IDs de sucursal separados por coma (ej: 1,2,3).'
+      - in: query
+        name: status
+        schema:
+          type: string
+          enum:
+          - success
+          - pending_conciliation
+          - cancelled
+      - in: query
+        name: page
+        schema:
+          type: integer
+          default: '0'
+      - in: query
+        name: limit
+        schema:
+          type: integer
+          default: '10'
+        description: ''
+      - in: query
+        name: orderBy
+        schema:
+          type: string
+          enum:
+          - paymentDate
+          - paymentAmount
+          - paymentId
+          default: paymentDate
+      - in: query
+        name: orderDirection
+        schema:
+          type: string
+          enum:
+          - ASC
+          - DESC
+          default: DESC
+      operationId: get_api-v4-integration-cash-in-payments
+      tags:
+      - Integration
+  /api/v4/integration/cash-in/payment-details/{paymentId}:
+    get:
+      description: ''
+      responses:
+        '200':
+          description: Detalle del pago.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  globalPaymentId:
+                    type: integer
+                    description: ID del pago registrado.
+                  status:
+                    type: string
+                    description: Estado del pago registrado.
+                    enum:
+                    - success
+                    - pending_conciliation
+                    - cancelled
+                  totalAmount:
+                    type: number
+                    description: Monto total del pago registrado.
+                  paymentDate:
+                    type: string
+                    description: Fecha y hora del pago registrado.
+                    format: date-time
+                  appliedPayments:
+                    type: array
+                    description: Lista de créditos y montos aplicados en el pago registrado.
+                    items:
+                      properties:
+                        creditId:
+                          type: integer
+                          description: ID del crédito.
+                        amount:
+                          type: string
+                          description: Monto aplicado.
+                      type: object
+                  storeName:
+                    type: string
+                    description: Nombre de la sucursal en la que se recibió el pago.
+                  storeId:
+                    type: number
+                    description: ID de la sucursal en la que se recibió el pago.
+                  receiptUrl:
+                    type: string
+                    description: URL del comprobante digital del pago registrado.
+                required:
+                - globalPaymentId
+                - status
+                - totalAmount
+                - paymentDate
+                - appliedPayments
+                - storeName
+                - storeId
+                - receiptUrl
+              examples:
+                ? ''
+                : summary: ''
+                  value:
+                    globalPaymentId: 0
+                    status: success
+                    totalAmount: 0
+                    paymentDate: '2026-03-24T17:19:30.750Z'
+                    appliedPayments:
+                    - creditId: 0
+                      amount: 0
+                    storeName: string
+                    storeId: 0
+                    receiptUrl: string
+        '400':
+          description: Id de pago inválido.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  details:
+                    type: string
+                required:
+                - message
+        '401':
+          description: No autorizado.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  details:
+                    type: string
+                required:
+                - message
+              examples:
+                ? ''
+                : summary: ''
+                  value:
+                    message: ID de pago inválido.
+      parameters:
+      - in: path
+        name: paymentId
+        schema:
+          type: integer
+        required: true
+        description: ID global del pago.
+      operationId: get_api-v4-integration-cash-in-payment-details-paymentid
+      tags:
+      - Integration
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: x-auth-token

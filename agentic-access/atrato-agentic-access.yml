@@ -1,0 +1,189 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/atrato-partners-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 13
+  by_action_class:
+    acting: 6
+    connected: 7
+  by_consequence:
+    write: 3
+    read: 7
+    physical: 3
+  human_in_the_loop_required: 0
+operations:
+- path: /api/v4/integration/login
+  method: post
+  operationId: autenticación
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v4/integration/cash-in/search
+  method: get
+  operationId: get_api-v4-integration-cash-in-search
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/integration/cash-in/available-stores
+  method: get
+  operationId: get_api-v4-integration-cash-in-available-stores
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/integration/cash-in/register-payment
+  method: post
+  operationId: post_api-v4-integration-cash-in-register-payment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v4/integration/cash-in/payments
+  method: get
+  operationId: get_api-v4-integration-cash-in-payments
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/integration/cash-in/payment-details/{paymentId}
+  method: get
+  operationId: get_api-v4-integration-cash-in-payment-details-paymentid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/ecommerce/integration/{partner-key}/login
+  method: post
+  operationId: obtener-token
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v4/ecommerce/integration/{partner-key}/application
+  method: post
+  operationId: generar-orden
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v4/ecommerce/integration/{partner-key}/order/{order-id}
+  method: get
+  operationId: consulta-de-orden
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/ecommerce/integration/{partner-key}/order/{order-id}/delivery
+  method: post
+  operationId: registrar-entrega
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v4/ecommerce/integration/{partner-key}/order/{order-id}/cancel
+  method: post
+  operationId: solicitar-cancelacion
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v4/ecommerce/integration/{partner-key}/disbursement
+  method: get
+  operationId: consulta-de-desembolsos
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/ecommerce/integration/{partner-key}/disbursement/{transaction-id}
+  method: get
+  operationId: consulta-de-desembolsos-orden
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

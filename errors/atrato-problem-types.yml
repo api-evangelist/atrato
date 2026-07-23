@@ -1,0 +1,52 @@
+generated: '2026-07-18'
+method: searched
+source: openapi/atrato-partners-openapi.yml + https://docs.atratopago.com/reference/recepción-de-pagos.md
+format: custom-json
+note: Atrato returns application/json errors (not application/problem+json / RFC 9457). The envelope carries
+  a human-readable `message` and, for validation errors, a `details` field.
+envelope:
+  fields:
+  - message
+  - details
+  content_type: application/json
+problems:
+- status: 400
+  title: Datos incorrectos / Bad request
+  meaning: Missing or invalid parameters (e.g. userId required, empty payments, amount greater than settleAmount,
+    unauthorized store).
+  field: message | details
+- status: 401
+  title: No autorizado
+  meaning: Invalid credentials, expired token (tokens expire in 5 minutes), or account without permission
+    to use the integration.
+  field: message
+- status: 404
+  title: No encontrado
+  meaning: User has no active credits, or credit summary / order not found.
+  field: message
+- status: 422
+  title: Unprocessable entity
+  meaning: Order request (generar-orden) rejected due to unprocessable business data.
+  field: message
+- status: 500
+  title: Error de servidor
+  meaning: General server error, e.g. 'Error al registrar el pago.' or store outside its configured payment-registration
+    hours (09:00-18:00 Hora de México).
+  field: message
+documented_messages:
+- userId es requerido
+- Debe incluir al menos un pago
+- payments[].amount debe ser un monto mayor a cero
+- La sucursal X no está autorizada o no existe.
+- El monto a pagar no puede ser mayor al monto a liquidar
+- No se encontraron créditos activos para este usuario
+- No puede pagar créditos que no correspondan al usuario
+- El horario de registro de pagos de la sucursal es de 09:00 a 18:00 Hora de México
+status_codes_observed:
+- '200'
+- '201'
+- '400'
+- '401'
+- '404'
+- '422'
+- '500'

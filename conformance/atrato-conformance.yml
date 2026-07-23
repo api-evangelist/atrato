@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/atrato-partners-openapi.yml + docs
+standards:
+- id: apikey-auth
+  conforms: true
+  evidence: securityScheme type apiKey in header x-auth-token
+- id: oauth2
+  conforms: false
+- id: oidc
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: errors are application/json with message/details, not application/problem+json
+- id: webhooks
+  conforms: true
+  evidence: documented HTTP POST webhook events (status_updated, disbursement_updated, cash-in) with retry
+    policy
+- id: pagination
+  conforms: true
+  evidence: page/limit + orderBy/orderDirection on list endpoints
+- id: idempotency
+  conforms: false
+  evidence: no request idempotency key documented
+regulatory:
+- id: profeco
+  note: Atrato Technologies is regulated by PROFECO (Mexican consumer-protection agency) per the public
+    site; not a security certification.

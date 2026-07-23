@@ -1,7 +1,15 @@
 aid: atrato
 name: Atrato
-description: 'Atrato is a company surfaced as a portfolio company of accel and added to the API Evangelist
-  network as a stub for enrichment. Sector: fintech. This profile is a lead awaiting the enrichment pipeline.'
+description: >-
+  Atrato (Atrato Technologies S.A.P.I. de C.V., atratopago.com) is a Mexican fintech offering
+  buy-now-pay-later (BNPL) point-of-sale financing. Affiliated merchants let shoppers split
+  purchases of up to $200,000 MXN into installments of up to 24 months, without a credit or debit
+  card, with approval in minutes. Atrato serves furniture, healthcare, mobility, construction,
+  motorcycle, appliance and other verticals, and is regulated by PROFECO. Its Atrato Partners
+  platform exposes a REST integration API (api-partners) covering in-store cash-in payment
+  collection and ecommerce checkout order generation, plus status/disbursement webhooks and
+  WooCommerce, Shopify and Magento plugins. This profile was enriched from Atrato's public
+  developer documentation at docs.atratopago.com.
 url: https://raw.githubusercontent.com/api-evangelist/atrato/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,13 +17,84 @@ x-backed-by:
 - accel
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
+image: https://www.atratopago.com/favicon.ico
 tags:
 - Company
 - Fintech
-apis: []
+- Payments
+- Buy Now Pay Later
+- Lending
+- Mexico
+- Point of Sale
+- Ecommerce
+apis:
+- aid: atrato:atrato-ecommerce-api
+  name: Atrato Ecommerce API
+  description: The Ecommerce API from Atrato — 7 operation(s) for ecommerce.
+  humanURL: https://docs.atratopago.com/reference/
+  baseURL: https://api-sandbox.atratopago.com
+  tags:
+  - Ecommerce
+  properties:
+  - type: OpenAPI
+    url: openapi/atrato-ecommerce-api-openapi.yml
+  - type: Authentication
+    url: authentication/atrato-authentication.yml
+  - type: ErrorCatalog
+    url: errors/atrato-problem-types.yml
+  - type: Conventions
+    url: conventions/atrato-conventions.yml
+  - type: DataModel
+    url: data-model/atrato-data-model.yml
+  - type: Webhooks
+    url: asyncapi/atrato-webhooks.yml
+  - type: Sandbox
+    url: sandbox/atrato-sandbox.yml
+  - type: Documentation
+    url: https://docs.atratopago.com/
+  - type: APIReference
+    url: https://docs.atratopago.com/reference/
+- aid: atrato:atrato-integration-api
+  name: Atrato Integration API
+  description: The Integration API from Atrato — 6 operation(s) for integration.
+  humanURL: https://docs.atratopago.com/reference/
+  baseURL: https://api-sandbox.atratopago.com
+  tags:
+  - Integration
+  properties:
+  - type: OpenAPI
+    url: openapi/atrato-integration-api-openapi.yml
+  - type: Authentication
+    url: authentication/atrato-authentication.yml
+  - type: ErrorCatalog
+    url: errors/atrato-problem-types.yml
+  - type: Conventions
+    url: conventions/atrato-conventions.yml
+  - type: DataModel
+    url: data-model/atrato-data-model.yml
+  - type: Webhooks
+    url: asyncapi/atrato-webhooks.yml
+  - type: Sandbox
+    url: sandbox/atrato-sandbox.yml
+  - type: Documentation
+    url: https://docs.atratopago.com/
+  - type: APIReference
+    url: https://docs.atratopago.com/reference/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -24,3 +103,62 @@ maintainers:
 common:
 - type: Website
   url: https://www.atratopago.com/
+- type: DeveloperPortal
+  url: https://docs.atratopago.com/
+- type: Documentation
+  url: https://docs.atratopago.com/
+- type: APIReference
+  url: https://docs.atratopago.com/reference/
+- type: GettingStarted
+  url: https://docs.atratopago.com/reference/recepción-de-pagos
+- type: Authentication
+  url: authentication/atrato-authentication.yml
+- type: OpenAPI
+  url: openapi/atrato-partners-openapi.yml
+- type: Overlay
+  url: overlays/atrato-partners-overlay.yaml
+- type: ErrorCatalog
+  url: errors/atrato-problem-types.yml
+- type: Conventions
+  url: conventions/atrato-conventions.yml
+- type: DataModel
+  url: data-model/atrato-data-model.yml
+- type: Conformance
+  url: conformance/atrato-conformance.yml
+- type: Lifecycle
+  url: lifecycle/atrato-lifecycle.yml
+- type: MCPServer
+  url: mcp/atrato-mcp.yml
+- type: AgenticAccess
+  url: agentic-access/atrato-agentic-access.yml
+- type: LLMsTxt
+  url: llms/atrato-llms.txt
+- type: Sandbox
+  url: sandbox/atrato-sandbox.yml
+- type: Webhooks
+  url: asyncapi/atrato-webhooks.yml
+- type: Components
+  url: components/atrato-components.yml
+- type: AgentSkill
+  url: skills/atrato-cash-in-register-payment.md
+- type: AgentSkill
+  url: skills/atrato-ecommerce-generate-order.md
+- type: DomainSecurity
+  url: security/atrato-domain-security.yml
+- type: Blog
+  url: https://www.atratopago.com/blog
+- type: Support
+  url: https://www.atratopago.com/soporte-y-ayuda
+- type: SignUp
+  url: https://app.atratopago.com/v3/accounts/register?LP=true
+- type: Login
+  url: https://app.atratopago.com/v3/accounts/getStarted
+- type: TermsOfService
+  url: https://s3.us-west-2.amazonaws.com/cdn.atratopago.com/Términos+y+Condiciones.+Atrato+Technologies..+2025.pdf
+- type: PrivacyPolicy
+  url: https://s3.us-west-2.amazonaws.com/cdn.atratopago.com/Aviso+de+Privacidad+Atrato+Technologies.+2026.pdf
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

@@ -1,0 +1,80 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.atratopago.com/reference/webhooks.md, estructura.md, catalogo.md, webhook.md
+spec_type: Webhooks
+delivery:
+  method: POST
+  content_type: application/json
+  retries: up to 6 retries until the receiver returns HTTP 200
+  auth: optional shared credential configured in the partner dashboard
+configuration: Partner dashboard > Recepción de pagos / Desarrollo > Webhook (URL + optional auth).
+events:
+- event: status_updated
+  surface: ecommerce/application
+  description: Application/order status change.
+  payload_fields:
+  - atrato_id
+  - atrato_application_id
+  - status
+  - status_id
+  - status_code
+  - order_id
+  - order_number
+  - customer{...}
+  - timestamp
+  - observations
+- event: disbursement_updated
+  surface: ecommerce/disbursement
+  description: Merchant disbursement status change.
+  payload_fields:
+  - status
+  - status_id
+  - status_code
+  - data.amount
+  - data.transactionId
+  - data.trackingKey
+- event: UPDATED_STATUS_PAYMENT_CASH_IN_AT_STORE
+  surface: cash-in
+  description: In-store cash-in payment status change.
+  payload_fields:
+  - paymentId
+  - status
+status_catalog:
+  status_updated:
+  - status: Solicitud iniciada
+    id: 20
+    code: SOLICITUDINICIADA
+  - status: Esperando Documentos
+    id: 4
+    code: ESPERANDODOCUMENTOS
+  - status: contratoFirmado
+    id: 9
+    code: CONTRATOFIRMADO
+  - status: Crédito Autorizado
+    id: 29
+    code: CREDITOAUTORIZADO
+  - status: Compra Confirmada
+    id: 18
+    code: COMPRACONFIRMADA
+  - status: Denegado
+    id: 5
+    code: DENEGADO
+  - status: Denegado Automáticamente
+    id: 13
+    code: AUTODENEGADO
+  - status: Caducado
+    id: 14
+    code: CADUCADO
+  - status: Cancelado
+    id: 15
+    code: CANCELADO
+  disbursement_updated:
+  - status: desembolsado
+    id: 19
+    code: DESEMBOLSADO
+  cash_in_payment:
+  - success
+  - pending_conciliation
+  - cancelled
+note: Full status_updated catalog has 19 states; the marquee and terminal states are captured here. See
+  catalogo.md for the exhaustive list.

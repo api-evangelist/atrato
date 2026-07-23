@@ -1,0 +1,22 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.atratopago.com/ (Guías) + https://www.atratopago.com/
+components:
+- family: checkout
+  name: Popup informativo
+  type: embedded-widget
+  description: Informational popup / payment-method widget merchants embed on product and checkout pages
+    to advertise Atrato BNPL and installment amounts.
+  docs: https://docs.atratopago.com/docs/popup-informativo-2
+platform_plugins:
+- platform: WooCommerce
+  kind: ecommerce-plugin
+  docs: https://docs.atratopago.com/
+- platform: Shopify
+  kind: ecommerce-plugin
+  docs: https://docs.atratopago.com/
+- platform: Magento
+  kind: ecommerce-plugin
+  docs: https://docs.atratopago.com/
+note: Atrato ships platform integrations (WooCommerce/Shopify/Magento) and an embeddable informational
+  popup rather than a general-purpose JS component library; no npm loader library is published.

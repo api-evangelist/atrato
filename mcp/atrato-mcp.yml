@@ -1,0 +1,49 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: openapi/atrato-partners-openapi.yml
+server:
+  name: atrato
+  transport: http
+  note: No official Atrato MCP server found (2026-07-18). Candidate tool list derived one-per-operation
+    from the reconstructed OpenAPI.
+tools:
+- name: autenticación
+  description: Autenticación
+  source_operation: openapi/atrato-partners-openapi.yml#autenticación
+- name: get_api-v4-integration-cash-in-search
+  description: /api/v4/integration/cash-in/search
+  source_operation: openapi/atrato-partners-openapi.yml#get_api-v4-integration-cash-in-search
+- name: get_api-v4-integration-cash-in-available-stores
+  description: /api/v4/integration/cash-in/available-stores
+  source_operation: openapi/atrato-partners-openapi.yml#get_api-v4-integration-cash-in-available-stores
+- name: post_api-v4-integration-cash-in-register-payment
+  description: /api/v4/integration/cash-in/register-payment
+  source_operation: openapi/atrato-partners-openapi.yml#post_api-v4-integration-cash-in-register-payment
+- name: get_api-v4-integration-cash-in-payments
+  description: /api/v4/integration/cash-in/payments
+  source_operation: openapi/atrato-partners-openapi.yml#get_api-v4-integration-cash-in-payments
+- name: get_api-v4-integration-cash-in-payment-details-paymentid
+  description: /api/v4/integration/cash-in/payment-details/{paymentId}
+  source_operation: openapi/atrato-partners-openapi.yml#get_api-v4-integration-cash-in-payment-details-paymentid
+- name: obtener-token
+  description: Obtener token
+  source_operation: openapi/atrato-partners-openapi.yml#obtener-token
+- name: generar-orden
+  description: Generar orden
+  source_operation: openapi/atrato-partners-openapi.yml#generar-orden
+- name: consulta-de-orden
+  description: Consultar orden
+  source_operation: openapi/atrato-partners-openapi.yml#consulta-de-orden
+- name: registrar-entrega
+  description: Registrar entrega
+  source_operation: openapi/atrato-partners-openapi.yml#registrar-entrega
+- name: solicitar-cancelacion
+  description: Solicitar cancelación
+  source_operation: openapi/atrato-partners-openapi.yml#solicitar-cancelacion
+- name: consulta-de-desembolsos
+  description: Consulta de desembolsos
+  source_operation: openapi/atrato-partners-openapi.yml#consulta-de-desembolsos
+- name: consulta-de-desembolsos-orden
+  description: Consulta de desembolsos por número de transacción
+  source_operation: openapi/atrato-partners-openapi.yml#consulta-de-desembolsos-orden
