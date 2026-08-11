@@ -114,7 +114,7 @@ common:
 - type: Authentication
   url: authentication/atrato-authentication.yml
 - type: OpenAPI
-  url: openapi/atrato-partners-openapi.yml
+  url: openapi/_original/atrato-partners-openapi.yml
 - type: Overlay
   url: overlays/atrato-partners-overlay.yaml
 - type: ErrorCatalog
