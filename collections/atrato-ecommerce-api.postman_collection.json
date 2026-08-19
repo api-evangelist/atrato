@@ -1,0 +1,2661 @@
+{
+  "item": [
+    {
+      "id": "17ec38aa-f5f0-4578-aab0-72b98e6f2995",
+      "name": "Ecommerce",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4ce53027-6e0a-45aa-b9f2-4adcd94dd651",
+          "name": "Obtener token",
+          "request": {
+            "name": "Obtener token",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "ecommerce",
+                "integration",
+                ":partner-key",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "partner-key",
+                  "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1c4c3e5c-5942-42a3-9eba-5d8739cb4751",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"username\",\n  \"password\": \"password\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"token\\\": \\\"token\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae577d0b-ceb4-453b-a971-9c313bf41076",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"username\",\n  \"password\": \"password\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"message\\\": \\\"No se proporcionaron los parámetros necesarios\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58d8b839-6ecc-4165-819d-39922b1c151d",
+              "name": "500",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"username\",\n  \"password\": \"password\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"message\\\": \\\"Error desconocido al intentar la autenticación\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12280730-a1b6-4902-89e3-4e55f96bb128",
+          "name": "Generar orden",
+          "request": {
+            "name": "Generar orden",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "ecommerce",
+                "integration",
+                ":partner-key",
+                "application"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "partner-key",
+                  "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Token de autenticación",
+                "key": "x-auth-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderId\": \"0000\",\n  \"requestedAmount\": 0,\n  \"productDescription\": \"Producto\",\n  \"customerName\": \"Jhon Doe\",\n  \"customerEmail\": \"emailname@email.com\",\n  \"customerPhone\": \"3331112233\",\n  \"successUrl\": \"https://url\",\n  \"failureUrl\": \"https://url\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "153df855-9987-4eee-9a8f-a5bde42d87ee",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"0000\",\n  \"requestedAmount\": 0,\n  \"productDescription\": \"Producto\",\n  \"customerName\": \"Jhon Doe\",\n  \"customerEmail\": \"emailname@email.com\",\n  \"customerPhone\": \"3331112233\",\n  \"successUrl\": \"https://url\",\n  \"failureUrl\": \"https://url\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"message\\\": \\\"Información\\\",\\n    \\\"url\\\": \\\"Url de solicitud\\\",\\n    \\\"atrato_id\\\": 0000\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0cd8765e-acda-4a52-9728-3f2fbff01137",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"0000\",\n  \"requestedAmount\": 0,\n  \"productDescription\": \"Producto\",\n  \"customerName\": \"Jhon Doe\",\n  \"customerEmail\": \"emailname@email.com\",\n  \"customerPhone\": \"3331112233\",\n  \"successUrl\": \"https://url\",\n  \"failureUrl\": \"https://url\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"message\\\": \\\"Parámetros incorrectos\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2c67df9-0bbc-432e-a227-edf84da7d121",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"0000\",\n  \"requestedAmount\": 0,\n  \"productDescription\": \"Producto\",\n  \"customerName\": \"Jhon Doe\",\n  \"customerEmail\": \"emailname@email.com\",\n  \"customerPhone\": \"3331112233\",\n  \"successUrl\": \"https://url\",\n  \"failureUrl\": \"https://url\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"msg\\\": \\\"Token no válido\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2583cce3-4aee-4c29-ae1a-4f10954ac240",
+              "name": "422",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"0000\",\n  \"requestedAmount\": 0,\n  \"productDescription\": \"Producto\",\n  \"customerName\": \"Jhon Doe\",\n  \"customerEmail\": \"emailname@email.com\",\n  \"customerPhone\": \"3331112233\",\n  \"successUrl\": \"https://url\",\n  \"failureUrl\": \"https://url\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"message\\\": \\\"El monto no está dentro del rango permitido\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "61765a0a-113d-46be-abc2-fc086f8a39f2",
+              "name": "500",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"0000\",\n  \"requestedAmount\": 0,\n  \"productDescription\": \"Producto\",\n  \"customerName\": \"Jhon Doe\",\n  \"customerEmail\": \"emailname@email.com\",\n  \"customerPhone\": \"3331112233\",\n  \"successUrl\": \"https://url\",\n  \"failureUrl\": \"https://url\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"message\\\": \\\"Error desconocido al evaluar financiamiento\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b4b51ff-1847-46b5-b1da-2e81282d6083",
+          "name": "Consultar orden",
+          "request": {
+            "name": "Consultar orden",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "ecommerce",
+                "integration",
+                ":partner-key",
+                "order",
+                ":order-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "partner-key",
+                  "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "order-id",
+                  "description": "(Required) Número de orden interna del Partner"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Token de autenticación",
+                "key": "x-auth-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c5ed1347-8012-4bc6-9d24-cdfbfe54368f",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "order",
+                    ":order-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order-id",
+                      "description": "(Required) Número de orden interna del Partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"event_type\\\": \\\"query\\\",\\n    \\\"event_data\\\": {\\n        \\\"atrato_id\\\": 2922,\\n        \\\"atrato_application_id\\\": 8144,\\n        \\\"status\\\": \\\"Desembolsado\\\",\\n        \\\"status_id\\\": 19,\\n        \\\"status_code\\\": \\\"DESEMBOLSADO\\\",\\n        \\\"order_id\\\": \\\"AAAA-BBBBB-CCCC-DDDD-EEEEE70703\\\",\\n        \\\"order_number\\\": \\\"AAAA-BBBBB-CCCC-DDDD-EEEEE70703\\\",\\n        \\\"customer\\\": {\\n            \\\"name\\\": \\\"RAMON LOPEZ PEREZ\\\",\\n            \\\"email\\\": \\\"ramon.lopez@email.com\\\",\\n            \\\"phone\\\": \\\"+523331230000\\\",\\n            \\\"address\\\": {\\n                \\\"street\\\": \\\"Calle Juarez\\\",\\n                \\\"ext_number\\\": \\\"12\\\",\\n                \\\"int_number\\\": null,\\n                \\\"district\\\": \\\"Roma\\\",\\n                \\\"postal_code\\\": \\\"28000\\\",\\n                \\\"city\\\": \\\"Guadalajara\\\"\\n            }\\n        },\\n        \\\"credit\\\": {\\n            \\\"creditId\\\": 2818,\\n            \\\"purchaseAmount\\\": 1000,\\n            \\\"totalFinanced\\\": 1000,\\n            \\\"merchantComision\\\": 0,\\n            \\\"interesRate\\\": 75,\\n            \\\"installments\\\": 6,\\n            \\\"installmentValue\\\": 211.41,\\n            \\\"biweekly\\\": false,\\n            \\\"creditTotalValue\\\": 1268.46\\n        },\\n        \\\"disbursement\\\": {\\n            \\\"transactionId\\\": 464,\\n            \\\"trackingKey\\\": \\\"SUC261TX464\\\"\\n        },\\n        \\\"timestamp\\\": 1729023133264,\\n        \\\"observations\\\": \\\"\\\"\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "555dcd85-c789-4a2f-8209-eac5d735327a",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "order",
+                    ":order-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order-id",
+                      "description": "(Required) Número de orden interna del Partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"message\\\": \\\"Parámetros incorrectos\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66678e63-5042-43d7-9946-f0d91620ee3e",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "order",
+                    ":order-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order-id",
+                      "description": "(Required) Número de orden interna del Partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"msg\\\": \\\"Unauthorized\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e6fd1d7-f8f8-4bc8-9adf-5a1029a584b9",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "order",
+                    ":order-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order-id",
+                      "description": "(Required) Número de orden interna del Partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"message\\\": \\\"No se encontró la orden\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3dbdffb6-177b-47bc-b8ba-fb5d611b0511",
+              "name": "500",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "order",
+                    ":order-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order-id",
+                      "description": "(Required) Número de orden interna del Partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"message\\\": \\\"Mensaje\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7dc16a36-e9cc-4dfd-b637-dffff8e55c70",
+          "name": "Registrar entrega",
+          "request": {
+            "name": "Registrar entrega",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "ecommerce",
+                "integration",
+                ":partner-key",
+                "order",
+                ":order-id",
+                "delivery"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "partner-key",
+                  "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "order-id",
+                  "description": "(Required) Número de orden interna del Partner"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Token de autenticación",
+                "key": "x-auth-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"product\": \"<string>\",\n  \"id_internal_folio_partner\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "89d1f664-0080-43d4-a984-06a87bf4f55b",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "order",
+                    ":order-id",
+                    "delivery"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order-id",
+                      "description": "(Required) Número de orden interna del Partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"product\": \"<string>\",\n  \"id_internal_folio_partner\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"message\\\": \\\"Producto marcado como entregado\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "942850b1-e8f7-483a-8cc6-4c15ed2328cb",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "order",
+                    ":order-id",
+                    "delivery"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order-id",
+                      "description": "(Required) Número de orden interna del Partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"product\": \"<string>\",\n  \"id_internal_folio_partner\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"message\\\": \\\"Parámetros incorrectos\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e301fdf5-388f-4256-8617-c0ace197d9d0",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "order",
+                    ":order-id",
+                    "delivery"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order-id",
+                      "description": "(Required) Número de orden interna del Partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"product\": \"<string>\",\n  \"id_internal_folio_partner\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"msg\\\": \\\"Unauthorized\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "976a104e-728c-4468-8844-f1842959c26a",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "order",
+                    ":order-id",
+                    "delivery"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order-id",
+                      "description": "(Required) Número de orden interna del Partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"product\": \"<string>\",\n  \"id_internal_folio_partner\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"message\\\": \\\"No se encontró la orden\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57913a4d-644a-4438-8cc5-1c90e7556233",
+              "name": "500",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "order",
+                    ":order-id",
+                    "delivery"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order-id",
+                      "description": "(Required) Número de orden interna del Partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"product\": \"<string>\",\n  \"id_internal_folio_partner\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"message\\\": \\\"Error desconocido al entregar producto\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "118fd3d4-0b70-4e8f-b248-ad57ba4539fd",
+          "name": "Solicitar cancelación",
+          "request": {
+            "name": "Solicitar cancelación",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "ecommerce",
+                "integration",
+                ":partner-key",
+                "order",
+                ":order-id",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "partner-key",
+                  "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "order-id",
+                  "description": "(Required) Número de orden interna del Partner"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Token de autenticación",
+                "key": "x-auth-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"reason\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "38bf4978-426b-4f74-9479-4c5aad6b6f58",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "order",
+                    ":order-id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order-id",
+                      "description": "(Required) Número de orden interna del Partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"reason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"message\\\": \\\"Solicitud de cancelación enviada\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad6ee219-18f9-4131-8803-d63f59b218a7",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "order",
+                    ":order-id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order-id",
+                      "description": "(Required) Número de orden interna del Partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"reason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"message\\\": \\\"Parámetros incorrectos\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d785dfbf-cdea-4d22-88b3-1d48756332e4",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "order",
+                    ":order-id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order-id",
+                      "description": "(Required) Número de orden interna del Partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"reason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"msg\\\": \\\"Unauthorized\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b01d7ef9-8ff3-4348-848b-e9e09be088e4",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "order",
+                    ":order-id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order-id",
+                      "description": "(Required) Número de orden interna del Partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"reason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"message\\\": \\\"No se encontró la orden\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f3ec043-02a2-4ed2-a317-e660107a9696",
+              "name": "500",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "order",
+                    ":order-id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order-id",
+                      "description": "(Required) Número de orden interna del Partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"reason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"message\\\": \\\"Error desconocido al cancelar la solicitud\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9c9a7f6-5257-403d-aff5-34c7bcd6b514",
+          "name": "Consulta de desembolsos",
+          "request": {
+            "name": "Consulta de desembolsos",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "ecommerce",
+                "integration",
+                ":partner-key",
+                "disbursement"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string>",
+                  "description": "Fecha inicial del periodo de consulta, formato YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string>",
+                  "description": "Fecha final del periodo de consulta, formato YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Número de página a consultar"
+                },
+                {
+                  "disabled": false,
+                  "key": "recordsPerPage",
+                  "value": "<integer>",
+                  "description": "Registros por página"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "partner-key",
+                  "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Token de autenticación",
+                "key": "x-auth-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "54ed051b-b54c-4d1b-9cb7-d5fa8e4a2bcb",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "disbursement"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "recordsPerPage",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"data\\\": [\\n        {\\n            \\\"atrato_id\\\": 2660,\\n            \\\"order_id\\\": \\\"AAAA-BBBBB-CCCC-DDDD-EEEEE18\\\",\\n            \\\"atrato_application_id\\\": 7745,\\n            \\\"disbursed\\\": 1,\\n            \\\"transfer_date\\\": \\\"2024-09-13T22:10:56.000Z\\\",\\n            \\\"amount_disbursed\\\": 1000,\\n            \\\"tracking_key\\\": \\\"SUC261TX429\\\",\\n            \\\"transactionId\\\": 429,\\n            \\\"merchant\\\": \\\"Ecommerce merchant\\\",\\n            \\\"store\\\": \\\"Ecommerce store\\\",\\n            \\\"disbursement_status\\\": \\\"Aplicada\\\"\\n        },\\n        {\\n            \\\"atrato_id\\\": 2662,\\n            \\\"order_id\\\": \\\"AAAA-BBBBB-CCCC-DDDD-EEEEE21\\\",\\n            \\\"atrato_application_id\\\": 7747,\\n            \\\"disbursed\\\": 1,\\n            \\\"transfer_date\\\": \\\"2024-09-13T22:10:56.000Z\\\",\\n            \\\"amount_disbursed\\\": 1000,\\n            \\\"tracking_key\\\": \\\"SUC261TX429\\\",\\n            \\\"transactionId\\\": 429,\\n            \\\"merchant\\\": \\\"Ecommerce merchant\\\",\\n            \\\"store\\\": \\\"Ecommerce store\\\",\\n            \\\"disbursement_status\\\": \\\"Aplicada\\\"\\n        },\\n        {\\n            \\\"atrato_id\\\": 2658,\\n            \\\"order_id\\\": \\\"AAAA-BBBBB-CCCC-DDDD-EEEEE16\\\",\\n            \\\"atrato_application_id\\\": 7744,\\n            \\\"disbursed\\\": 1,\\n            \\\"transfer_date\\\": \\\"2024-09-13T21:41:37.000Z\\\",\\n            \\\"amount_disbursed\\\": 1111,\\n            \\\"tracking_key\\\": \\\"SUC261TX428\\\",\\n            \\\"transactionId\\\": 428,\\n            \\\"merchant\\\": \\\"Ecommerce merchant\\\",\\n            \\\"store\\\": \\\"Ecommerce store\\\",\\n            \\\"disbursement_status\\\": \\\"Aplicada\\\"\\n        },\\n        {\\n            \\\"atrato_id\\\": 2657,\\n            \\\"order_id\\\": \\\"AAAA-BBBBB-CCCC-DDDD-EEEEE15\\\",\\n            \\\"atrato_application_id\\\": 7743,\\n            \\\"disbursed\\\": 1,\\n            \\\"transfer_date\\\": \\\"2024-09-13T17:55:28.000Z\\\",\\n            \\\"amount_disbursed\\\": 1111,\\n            \\\"tracking_key\\\": \\\"SUC261TX427\\\",\\n            \\\"transactionId\\\": 427,\\n            \\\"merchant\\\": \\\"Ecommerce merchant\\\",\\n            \\\"store\\\": \\\"Ecommerce store\\\",\\n            \\\"disbursement_status\\\": \\\"Aplicada\\\"\\n        },\\n        {\\n            \\\"atrato_id\\\": 2656,\\n            \\\"order_id\\\": \\\"AAAA-BBBBB-CCCC-DDDD-EEEEE14\\\",\\n            \\\"atrato_application_id\\\": 7741,\\n            \\\"disbursed\\\": 1,\\n            \\\"transfer_date\\\": \\\"2024-09-13T14:47:16.000Z\\\",\\n            \\\"amount_disbursed\\\": 1111,\\n            \\\"tracking_key\\\": \\\"SUC261TX426\\\",\\n            \\\"transactionId\\\": 426,\\n            \\\"merchant\\\": \\\"Ecommerce merchant\\\",\\n            \\\"store\\\": \\\"Ecommerce store\\\",\\n            \\\"disbursement_status\\\": \\\"Aplicada\\\"\\n        },\\n        {\\n            \\\"atrato_id\\\": 2649,\\n            \\\"order_id\\\": \\\"AAAA-BBBBB-CCCC-DDDD-EEEEE12\\\",\\n            \\\"atrato_application_id\\\": 7731,\\n            \\\"disbursed\\\": 1,\\n            \\\"transfer_date\\\": \\\"2024-09-12T16:25:11.000Z\\\",\\n            \\\"amount_disbursed\\\": 1111,\\n            \\\"tracking_key\\\": \\\"SUC261TX425\\\",\\n            \\\"transactionId\\\": 425,\\n            \\\"merchant\\\": \\\"Ecommerce merchant\\\",\\n            \\\"store\\\": \\\"Ecommerce store\\\",\\n            \\\"disbursement_status\\\": \\\"Aplicada\\\"\\n        },\\n        {\\n            \\\"atrato_id\\\": 2648,\\n            \\\"order_id\\\": \\\"AAAA-BBBBB-CCCC-DDDD-EEEEE11\\\",\\n            \\\"atrato_application_id\\\": 7730,\\n            \\\"disbursed\\\": 1,\\n            \\\"transfer_date\\\": \\\"2024-09-12T16:18:38.000Z\\\",\\n            \\\"amount_disbursed\\\": 1111,\\n            \\\"tracking_key\\\": \\\"SUC261TX424\\\",\\n            \\\"transactionId\\\": 424,\\n            \\\"merchant\\\": \\\"Ecommerce merchant\\\",\\n            \\\"store\\\": \\\"Ecommerce store\\\",\\n            \\\"disbursement_status\\\": \\\"Aplicada\\\"\\n        },\\n        {\\n            \\\"atrato_id\\\": 2647,\\n            \\\"order_id\\\": \\\"123000001234\\\",\\n            \\\"atrato_application_id\\\": 7729,\\n            \\\"disbursed\\\": 1,\\n            \\\"transfer_date\\\": \\\"2024-09-12T15:59:01.000Z\\\",\\n            \\\"amount_disbursed\\\": 1111,\\n            \\\"tracking_key\\\": \\\"SUC261TX423\\\",\\n            \\\"transactionId\\\": 423,\\n            \\\"merchant\\\": \\\"Ecommerce merchant\\\",\\n            \\\"store\\\": \\\"Ecommerce store\\\",\\n            \\\"disbursement_status\\\": \\\"Aplicada\\\"\\n        }\\n    ],\\n    \\\"totalRecords\\\": 7,\\n    \\\"recordsPerPage\\\": 10,\\n    \\\"currentPage\\\": 1,\\n    \\\"totalPages\\\": 1\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a3b74a5f-7377-48e3-b415-3203d8a0e89f",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "disbursement"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "recordsPerPage",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"message\\\": \\\"Valor de fechas incorrecto\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4fc155b-8e1d-4492-b663-461387e76a37",
+              "name": "500",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "disbursement"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "recordsPerPage",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"message\\\": \\\"La consulta no pudo ser procesada satisfactoriamente\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09490c1b-c453-491b-b947-ad7d661b2ab6",
+          "name": "Consulta de desembolsos por número de transacción",
+          "request": {
+            "name": "Consulta de desembolsos por número de transacción",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "ecommerce",
+                "integration",
+                ":partner-key",
+                "disbursement",
+                ":transaction-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "partner-key",
+                  "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transaction-id",
+                  "description": "(Required) Número de transacción de desembolso"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Token de autenticación",
+                "key": "x-auth-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "445b864c-b409-4a57-a4b2-3bc5812005ba",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "disbursement",
+                    ":transaction-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction-id",
+                      "description": "(Required) Número de transacción de desembolso"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"amount\\\": 1000,\\n    \\\"transactionId\\\": 464,\\n    \\\"trackingKey\\\": \\\"SUC261TX464\\\",\\n    \\\"balance\\\": [\\n        {\\n            \\\"id\\\": 354,\\n            \\\"creationDate\\\": \\\"2024-10-15 18:48:54\\\",\\n            \\\"type\\\": \\\"CONTRIBUTION\\\",\\n            \\\"status\\\": \\\"APPLIED\\\",\\n            \\\"amount\\\": 1000,\\n            \\\"previousBalance\\\": 0,\\n            \\\"actualBalance\\\": 1000,\\n            \\\"credit\\\": {\\n                \\\"orderId\\\": \\\"AAAA-BBBBB-CCCC-DDDD-EEEEE70703\\\",\\n                \\\"atratoCreditId\\\": 2818,\\n                \\\"atratoApplicationId\\\": 8144,\\n                \\\"amountPurchase\\\": 1000,\\n                \\\"amountGranted\\\": 1000,\\n                \\\"merchantComission\\\": \\\"0%\\\",\\n                \\\"comissionAmount\\\": 0,\\n                \\\"ivaAmount\\\": 0,\\n                \\\"disbursementAmount\\\": 1000\\n            }\\n        }\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "910b8b27-c964-48e7-944b-20621c205fbd",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "disbursement",
+                    ":transaction-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction-id",
+                      "description": "(Required) Número de transacción de desembolso"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"message\\\": \\\"Valor de fechas incorrecto\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c9faf7f-8e64-480c-acd8-03daccccca11",
+              "name": "500",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "ecommerce",
+                    "integration",
+                    ":partner-key",
+                    "disbursement",
+                    ":transaction-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partner-key",
+                      "description": "(Required) Código de validación de sucursal, se obtiene del dashboard de partner"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction-id",
+                      "description": "(Required) Número de transacción de desembolso"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token de autenticación",
+                    "key": "x-auth-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"message\\\": \\\"La consulta no pudo ser procesada satisfactoriamente\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.atratopago.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-auth-token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7a684372-9b0e-4744-a7e4-25de86eb6c9f",
+    "name": "Atrato Partners Ecommerce API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Atrato Partners API (api-partners) for buy-now-pay-later integration: in-store cash-in payment collection and ecommerce checkout order generation. Reconstructed verbatim from Atrato's per-operation OpenAPI definitions published in the ReadMe developer reference at docs.atratopago.com.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1535 @@
+{
+  "item": [
+    {
+      "id": "ca2a5ecc-875d-45b6-a9de-df63bdf80d28",
+      "name": "Integration",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4dd72d36-7a8e-4077-8b65-fa08d63626af",
+          "name": "Autenticación",
+          "request": {
+            "name": "Autenticación",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "integration",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9ea065ff-5f47-44a7-b593-6205ba86bb28",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "integration",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"token\\\": \\\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVC19.eyJwYXJ0bmVyIjprImlkQ29tZXJjaW8iOjEsIndsczZXJuYW1lIjoiRGllZ29aYXJhdGUiLCJpc0VkaXRvciI6dHJ1ZSwiaXNNYXN0ZXIiOnRydWUsImlzQWN0aXZlIjp0cnVlLCJpZCI6MTAsImZlY2hhQ3JlYWNpb24iOiIyMDIxLTA2LTIwVDAxOjMzOjQyLjAwMFoifSwiaWF0IjoxNjcyMDc5NzkzLCJleHAiOjE2NzIxMzAxOTN9.XNKesoKpaztn7oMRkl73dN8c-Mj4v_dH9y5obq7QTAU\\\",\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fdae179e-130c-4245-be08-a277d500fb7a",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "integration",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"msg\\\": \\\"No se encontró cuenta registrada para usuario: {user}\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd9cf447-6255-4d2f-93a6-fec048a9cc5c",
+          "name": "get api-v4-integration-cash-in-search",
+          "request": {
+            "name": "get api-v4-integration-cash-in-search",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "integration",
+                "cash-in",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "reference",
+                  "value": "",
+                  "description": "Número de referencia CIE asignado al cliente (inicia con la letra 'U')."
+                },
+                {
+                  "disabled": false,
+                  "key": "applicationId",
+                  "value": "",
+                  "description": "ID de la solicitud de crédito."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1d72e1e3-a3cd-4afb-b320-899290d1ccb1",
+              "name": "Usuario encontrado con créditos activos. Devuelve los datos del usuario y los créditos activos con montos disponibles para pago.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "integration",
+                    "cash-in",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "reference",
+                      "value": ""
+                    },
+                    {
+                      "key": "applicationId",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userName\": \"string\",\n  \"userId\": 0,\n  \"credits\": [\n    {\n      \"creditId\": 0,\n      \"debtToDate\": 0,\n      \"settleAmount\": 0,\n      \"merchantName\": \"string\",\n      \"installmentAmount\": 0\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a087c24-21df-41f3-8c70-375389619e81",
+              "name": "No se proporcionó ningún criterio de búsqueda. Se requiere al menos uno de los dos parámetros.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "integration",
+                    "cash-in",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "reference",
+                      "value": ""
+                    },
+                    {
+                      "key": "applicationId",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"No se proporcionó ningún criterio de búsqueda\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b15482e-cf92-4082-a1d9-14d18628e246",
+              "name": "No se proporcionó el token de autenticación. Se debe usar el token obtenido con el endpoint /api/v4/integration/login.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "integration",
+                    "cash-in",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "reference",
+                      "value": ""
+                    },
+                    {
+                      "key": "applicationId",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fdf6ce18-470d-445e-a957-e881e9740358",
+              "name": "No se encontró ningún usuario con los criterios de búsqueda proporcionados.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "integration",
+                    "cash-in",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "reference",
+                      "value": ""
+                    },
+                    {
+                      "key": "applicationId",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"No se encontraron créditos activos para este usuario\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa25d2f6-0d40-4143-bcc6-9612ca922a8f",
+          "name": "get api-v4-integration-cash-in-available-stores",
+          "request": {
+            "name": "get api-v4-integration-cash-in-available-stores",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "integration",
+                "cash-in",
+                "available-stores"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "86827a5f-b6b1-4e15-9626-b48d8b9435c8",
+              "name": "Lista de sucursales autorizadas.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "integration",
+                    "cash-in",
+                    "available-stores"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"stores\": [\n    {\n      \"storeId\": 1,\n      \"name\": \"Sucursal Centro\"\n    },\n    {\n      \"storeId\": 2,\n      \"name\": \"Sucursal Norte\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea4ea1df-3e5e-48ae-9bd9-4abbd83868d2",
+              "name": "No autorizado.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "integration",
+                    "cash-in",
+                    "available-stores"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"No se encontraron sucursales autorizadas.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3f824b1-2791-4e29-b5b8-38ca33468768",
+          "name": "post api-v4-integration-cash-in-register-payment",
+          "request": {
+            "name": "post api-v4-integration-cash-in-register-payment",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "integration",
+                "cash-in",
+                "register-payment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"12345\",\n  \"storeId\": \"1\",\n  \"payments\": [\n    {\n      \"creditId\": \"100\",\n      \"amount\": \"500\"\n    },\n    {\n      \"creditId\": \"100\",\n      \"amount\": \"500\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "662a7072-cd84-4fdf-9fe8-13a949c3930c",
+              "name": "Pago registrado correctamente. Devuelve los datos del pago registrado.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "integration",
+                    "cash-in",
+                    "register-payment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"12345\",\n  \"storeId\": \"1\",\n  \"payments\": [\n    {\n      \"creditId\": \"100\",\n      \"amount\": \"500\"\n    },\n    {\n      \"creditId\": \"100\",\n      \"amount\": \"500\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"globalPaymentId\": 999,\n  \"status\": \"success\",\n  \"totalAmount\": 800,\n  \"appliedPayments\": [\n    {\n      \"creditId\": 100,\n      \"amount\": 500\n    },\n    {\n      \"creditId\": 101,\n      \"amount\": 300\n    }\n  ],\n  \"message\": \"Pago aplicado correctamente a 2 créditos.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fb444b36-7d71-4cd4-a9e8-d2954ba4610b",
+              "name": "Datos incorrectos o validación fallida. Posibles causas: validación de schema (userId, payments, montos), sucursal no autorizada, monto mayor al permitido, créditos no válidos o no pertenecen al usuario.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "integration",
+                    "cash-in",
+                    "register-payment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"12345\",\n  \"storeId\": \"1\",\n  \"payments\": [\n    {\n      \"creditId\": \"100\",\n      \"amount\": \"500\"\n    },\n    {\n      \"creditId\": \"100\",\n      \"amount\": \"500\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Datos incorrectos.\",\n  \"details\": \"userId es requerido\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7588132a-10c6-440e-bf0b-0e1175343d84",
+              "name": "No autorizado.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "integration",
+                    "cash-in",
+                    "register-payment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"12345\",\n  \"storeId\": \"1\",\n  \"payments\": [\n    {\n      \"creditId\": \"100\",\n      \"amount\": \"500\"\n    },\n    {\n      \"creditId\": \"100\",\n      \"amount\": \"500\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b157f5d-5eb3-4543-ba90-a5e08c39ac14",
+              "name": "Recurso no encontrado.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "integration",
+                    "cash-in",
+                    "register-payment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"12345\",\n  \"storeId\": \"1\",\n  \"payments\": [\n    {\n      \"creditId\": \"100\",\n      \"amount\": \"500\"\n    },\n    {\n      \"creditId\": \"100\",\n      \"amount\": \"500\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"No se encontró el resumen de los créditos para este usuario\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "436c3303-a277-4f6e-b668-5ce45a532073",
+              "name": "Error al registrar el pago o operación no permitida (ej. fuera de horario de sucursal).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "integration",
+                    "cash-in",
+                    "register-payment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"12345\",\n  \"storeId\": \"1\",\n  \"payments\": [\n    {\n      \"creditId\": \"100\",\n      \"amount\": \"500\"\n    },\n    {\n      \"creditId\": \"100\",\n      \"amount\": \"500\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"El horario de registro de pagos de la sucursal es de 09:00 a 18:00 Hora de México\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4ec4ceb7-09bf-4405-9bf5-a39f76270b12",
+          "name": "get api-v4-integration-cash-in-payments",
+          "request": {
+            "name": "get api-v4-integration-cash-in-payments",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "integration",
+                "cash-in",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "paymentId",
+                  "value": "<string>",
+                  "description": "Filtrar por ID de pago."
+                },
+                {
+                  "disabled": false,
+                  "key": "minDate",
+                  "value": "<date>",
+                  "description": "Fecha mínima (YYYY-MM-DD o ISO)."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxDate",
+                  "value": "<date>",
+                  "description": "Fecha máxima (YYYY-MM-DD o ISO)."
+                },
+                {
+                  "disabled": false,
+                  "key": "minAmount",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxAmount",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "stores",
+                  "value": "<string>",
+                  "description": "IDs de sucursal separados por coma (ej: 1,2,3)."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "paymentDate"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderDirection",
+                  "value": "DESC"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed1f1876-1e83-47d9-8f44-24f05b50476c",
+              "name": "Lista de pagos.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "integration",
+                    "cash-in",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "paymentId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "minDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "maxDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "minAmount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxAmount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "stores",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "paymentDate"
+                    },
+                    {
+                      "key": "orderDirection",
+                      "value": "DESC"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalPayments\": 1071,\n  \"data\": [\n    {\n      \"storeName\": \"string\",\n      \"paymentDate\": \"1959-06-15T11:46:59.914Z\",\n      \"totalAmount\": \"string\",\n      \"status\": \"pending_conciliation\",\n      \"globalPaymentId\": 2936\n    },\n    {\n      \"storeName\": \"string\",\n      \"paymentDate\": \"1992-12-08T10:07:51.427Z\",\n      \"totalAmount\": \"string\",\n      \"status\": \"success\",\n      \"globalPaymentId\": 6078\n    }\n  ],\n  \"totalAmount\": 2362.9580649692084\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c38eb4f-960f-41d6-9f83-7012a007f227",
+              "name": "Párametros incorrectos.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "integration",
+                    "cash-in",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "paymentId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "minDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "maxDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "minAmount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxAmount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "stores",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "paymentDate"
+                    },
+                    {
+                      "key": "orderDirection",
+                      "value": "DESC"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e6277a13-97b8-4c4c-b49d-6beded8d87e7",
+              "name": "No autorizado.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "integration",
+                    "cash-in",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "paymentId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "minDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "maxDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "minAmount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxAmount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "stores",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "paymentDate"
+                    },
+                    {
+                      "key": "orderDirection",
+                      "value": "DESC"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "abaaaa9f-dcf0-462d-81b6-1f74e36b5f58",
+          "name": "get api-v4-integration-cash-in-payment-details-paymentid",
+          "request": {
+            "name": "get api-v4-integration-cash-in-payment-details-paymentid",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "integration",
+                "cash-in",
+                "payment-details",
+                ":paymentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "paymentId",
+                  "description": "(Required) ID global del pago."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "806c593c-edcd-47d6-9d86-c40e209eb24f",
+              "name": "Detalle del pago.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "integration",
+                    "cash-in",
+                    "payment-details",
+                    ":paymentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "paymentId",
+                      "description": "(Required) ID global del pago."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"globalPaymentId\": 0,\n  \"status\": \"success\",\n  \"totalAmount\": 0,\n  \"paymentDate\": \"2026-03-24T17:19:30.750Z\",\n  \"appliedPayments\": [\n    {\n      \"creditId\": 0,\n      \"amount\": 0\n    }\n  ],\n  \"storeName\": \"string\",\n  \"storeId\": 0,\n  \"receiptUrl\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de4b5d93-c410-4a6a-b954-0309148f026f",
+              "name": "Id de pago inválido.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "integration",
+                    "cash-in",
+                    "payment-details",
+                    ":paymentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "paymentId",
+                      "description": "(Required) ID global del pago."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7cf86290-8e05-4e66-b6ef-b368f40ae3c7",
+              "name": "No autorizado.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "integration",
+                    "cash-in",
+                    "payment-details",
+                    ":paymentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "paymentId",
+                      "description": "(Required) ID global del pago."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"ID de pago inválido.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.atratopago.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-auth-token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e95943c5-9dd4-4316-85a3-8b85869c7e45",
+    "name": "Atrato Partners Ecommerce Integration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Atrato Partners API (api-partners) for buy-now-pay-later integration: in-store cash-in payment collection and ecommerce checkout order generation. Reconstructed verbatim from Atrato's per-operation OpenAPI definitions published in the ReadMe developer reference at docs.atratopago.com.",
+      "type": "text/plain"
+    }
+  }
+}

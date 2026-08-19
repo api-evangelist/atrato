@@ -1,0 +1,178 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Atrato Partners Ecommerce Integration API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-auth-token",
+      "value": "{{x-auth-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Integration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autenticación",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.atratopago.com/api/v4/integration/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Autenticación"
+        },
+        {
+          "info": {
+            "name": "get_api-v4-integration-cash-in-search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.atratopago.com/api/v4/integration/cash-in/search",
+            "params": [
+              {
+                "name": "reference",
+                "value": "",
+                "type": "query",
+                "description": "Número de referencia CIE asignado al cliente (inicia con la letra 'U')."
+              },
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "query",
+                "description": "ID de la solicitud de crédito."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "get_api-v4-integration-cash-in-available-stores",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.atratopago.com/api/v4/integration/cash-in/available-stores"
+          }
+        },
+        {
+          "info": {
+            "name": "post_api-v4-integration-cash-in-register-payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.atratopago.com/api/v4/integration/cash-in/register-payment",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "get_api-v4-integration-cash-in-payments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.atratopago.com/api/v4/integration/cash-in/payments",
+            "params": [
+              {
+                "name": "paymentId",
+                "value": "",
+                "type": "query",
+                "description": "Filtrar por ID de pago."
+              },
+              {
+                "name": "minDate",
+                "value": "",
+                "type": "query",
+                "description": "Fecha mínima (YYYY-MM-DD o ISO)."
+              },
+              {
+                "name": "maxDate",
+                "value": "",
+                "type": "query",
+                "description": "Fecha máxima (YYYY-MM-DD o ISO)."
+              },
+              {
+                "name": "minAmount",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maxAmount",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "stores",
+                "value": "",
+                "type": "query",
+                "description": "IDs de sucursal separados por coma (ej: 1,2,3)."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderDirection",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "get_api-v4-integration-cash-in-payment-details-paymentid",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.atratopago.com/api/v4/integration/cash-in/payment-details/:paymentId",
+            "params": [
+              {
+                "name": "paymentId",
+                "value": "",
+                "type": "path",
+                "description": "ID global del pago."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

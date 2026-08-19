@@ -47,3 +47,9 @@ tools:
 - name: consulta-de-desembolsos-orden
   description: Consulta de desembolsos por número de transacción
   source_operation: openapi/atrato-partners-openapi.yml#consulta-de-desembolsos-orden
+deployment:
+  mode: none
+  verified: derived
+  tools: 13
+  checked: '2026-08-12'
+  source: catalog MCP census

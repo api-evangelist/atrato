@@ -1,0 +1,259 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Atrato Partners Ecommerce API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-auth-token",
+      "value": "{{x-auth-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ecommerce",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Obtener token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.atratopago.com/api/v4/ecommerce/integration/:partner-key/login",
+            "params": [
+              {
+                "name": "partner-key",
+                "value": "",
+                "type": "path",
+                "description": "Código de validación de sucursal, se obtiene del dashboard de partner"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Obtener token"
+        },
+        {
+          "info": {
+            "name": "Generar orden",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.atratopago.com/api/v4/ecommerce/integration/:partner-key/application",
+            "headers": [
+              {
+                "name": "x-auth-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "partner-key",
+                "value": "",
+                "type": "path",
+                "description": "Código de validación de sucursal, se obtiene del dashboard de partner"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generar orden"
+        },
+        {
+          "info": {
+            "name": "Consultar orden",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.atratopago.com/api/v4/ecommerce/integration/:partner-key/order/:order-id",
+            "headers": [
+              {
+                "name": "x-auth-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "partner-key",
+                "value": "",
+                "type": "path",
+                "description": "Código de validación de sucursal, se obtiene del dashboard de partner"
+              },
+              {
+                "name": "order-id",
+                "value": "",
+                "type": "path",
+                "description": "Número de orden interna del Partner"
+              }
+            ]
+          },
+          "docs": "Consultar orden"
+        },
+        {
+          "info": {
+            "name": "Registrar entrega",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.atratopago.com/api/v4/ecommerce/integration/:partner-key/order/:order-id/delivery",
+            "headers": [
+              {
+                "name": "x-auth-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "partner-key",
+                "value": "",
+                "type": "path",
+                "description": "Código de validación de sucursal, se obtiene del dashboard de partner"
+              },
+              {
+                "name": "order-id",
+                "value": "",
+                "type": "path",
+                "description": "Número de orden interna del Partner"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Registrar entrega"
+        },
+        {
+          "info": {
+            "name": "Solicitar cancelación",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.atratopago.com/api/v4/ecommerce/integration/:partner-key/order/:order-id/cancel",
+            "headers": [
+              {
+                "name": "x-auth-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "partner-key",
+                "value": "",
+                "type": "path",
+                "description": "Código de validación de sucursal, se obtiene del dashboard de partner"
+              },
+              {
+                "name": "order-id",
+                "value": "",
+                "type": "path",
+                "description": "Número de orden interna del Partner"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Solicitar cancelación"
+        },
+        {
+          "info": {
+            "name": "Consulta de desembolsos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.atratopago.com/api/v4/ecommerce/integration/:partner-key/disbursement",
+            "headers": [
+              {
+                "name": "x-auth-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "partner-key",
+                "value": "",
+                "type": "path",
+                "description": "Código de validación de sucursal, se obtiene del dashboard de partner"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Fecha inicial del periodo de consulta, formato YYYY-MM-DD"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "Fecha final del periodo de consulta, formato YYYY-MM-DD"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Número de página a consultar"
+              },
+              {
+                "name": "recordsPerPage",
+                "value": "",
+                "type": "query",
+                "description": "Registros por página"
+              }
+            ]
+          },
+          "docs": "Consulta de desembolsos"
+        },
+        {
+          "info": {
+            "name": "Consulta de desembolsos por número de transacción",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.atratopago.com/api/v4/ecommerce/integration/:partner-key/disbursement/:transaction-id",
+            "headers": [
+              {
+                "name": "x-auth-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "partner-key",
+                "value": "",
+                "type": "path",
+                "description": "Código de validación de sucursal, se obtiene del dashboard de partner"
+              },
+              {
+                "name": "transaction-id",
+                "value": "",
+                "type": "path",
+                "description": "Número de transacción de desembolso"
+              }
+            ]
+          },
+          "docs": "Consulta de desembolsos por número de transacción"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
