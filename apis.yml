@@ -40,6 +40,15 @@ tags:
 - Buy Now Pay Later
 - Lending
 - Mexico
+- Point-of-Sale
+- E-Commerce
+tags_raw:
+- Company
+- Fintech
+- Payments
+- Buy Now Pay Later
+- Lending
+- Mexico
 - Point of Sale
 - Ecommerce
 apis:
@@ -49,6 +58,8 @@ apis:
   humanURL: https://docs.atratopago.com/reference/
   baseURL: https://api-sandbox.atratopago.com
   tags:
+  - E-Commerce
+  tags_raw:
   - Ecommerce
   properties:
   - type: OpenAPI
