@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Atrato Partners Ecommerce Integration API
+  title: Atrato Partners Integration API
   version: '1.0'
   description: 'Atrato Partners API (api-partners) for buy-now-pay-later integration: in-store cash-in payment collection and ecommerce checkout order generation. Reconstructed verbatim from Atrato''s per-operation OpenAPI definitions published in the ReadMe developer reference at docs.atratopago.com.'
 servers:
@@ -188,6 +188,8 @@ paths:
       operationId: get_api-v4-integration-cash-in-search
       tags:
       - Integration
+      summary: Get api v4 integration cash in search
+      x-summary-source: derived
   /api/v4/integration/cash-in/available-stores:
     get:
       description: ''
@@ -232,6 +234,8 @@ paths:
       operationId: get_api-v4-integration-cash-in-available-stores
       tags:
       - Integration
+      summary: Get api v4 integration cash in available stores
+      x-summary-source: derived
   /api/v4/integration/cash-in/register-payment:
     post:
       description: ''
@@ -428,6 +432,8 @@ paths:
       x-readme: {}
       tags:
       - Integration
+      summary: Post api v4 integration cash in register payment
+      x-summary-source: derived
   /api/v4/integration/cash-in/payments:
     get:
       description: ''
@@ -575,6 +581,8 @@ paths:
       operationId: get_api-v4-integration-cash-in-payments
       tags:
       - Integration
+      summary: Get api v4 integration cash in payments
+      x-summary-source: derived
   /api/v4/integration/cash-in/payment-details/{paymentId}:
     get:
       description: ''
@@ -688,6 +696,8 @@ paths:
       operationId: get_api-v4-integration-cash-in-payment-details-paymentid
       tags:
       - Integration
+      summary: Get api v4 integration cash in payment details paymentid
+      x-summary-source: derived
 components:
   securitySchemes:
     sec0:

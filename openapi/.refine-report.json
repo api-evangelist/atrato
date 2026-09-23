@@ -1,8 +1,7 @@
 {
   "provider": "atrato",
   "sources": [
-    "atrato-ecommerce-api-openapi.yml",
-    "atrato-integration-api-openapi.yml"
+    "_original/atrato-partners-openapi.yml"
   ],
   "outputs": [
     "atrato-ecommerce-api-openapi.yml",
@@ -11,6 +10,28 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "atrato-partners-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "atrato-partners-openapi.yml: tagged paths POST /api/v4/integration/login -> Integration",
+    "atrato-partners-openapi.yml: tagged paths GET /api/v4/integration/cash-in/search -> Integration",
+    "atrato-partners-openapi.yml: tagged paths GET /api/v4/integration/cash-in/available-stores -> Integration",
+    "atrato-partners-openapi.yml: tagged paths POST /api/v4/integration/cash-in/register-payment -> Integration",
+    "atrato-partners-openapi.yml: tagged paths GET /api/v4/integration/cash-in/payments -> Integration",
+    "atrato-partners-openapi.yml: tagged paths GET /api/v4/integration/cash-in/payment-details/{paymentId} -> Integration",
+    "atrato-partners-openapi.yml: tagged paths POST /api/v4/ecommerce/integration/{partner-key}/login -> Ecommerce",
+    "atrato-partners-openapi.yml: tagged paths POST /api/v4/ecommerce/integration/{partner-key}/application -> Ecommerce",
+    "atrato-partners-openapi.yml: tagged paths GET /api/v4/ecommerce/integration/{partner-key}/order/{order-id} -> Ecommerce",
+    "atrato-partners-openapi.yml: tagged paths POST /api/v4/ecommerce/integration/{partner-key}/order/{order-id}/delivery -> Ecommerce",
+    "atrato-partners-openapi.yml: tagged paths POST /api/v4/ecommerce/integration/{partner-key}/order/{order-id}/cancel -> Ecommerce",
+    "atrato-partners-openapi.yml: tagged paths GET /api/v4/ecommerce/integration/{partner-key}/disbursement -> Ecommerce",
+    "atrato-partners-openapi.yml: tagged paths GET /api/v4/ecommerce/integration/{partner-key}/disbursement/{transaction-id} -> Ecommerce",
+    "atrato-partners-openapi.yml: declared missing tag: Ecommerce",
+    "atrato-partners-openapi.yml: declared missing tag: Integration",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "atrato-ecommerce-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "atrato-integration-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
